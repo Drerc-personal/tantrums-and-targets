@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Methodology — Tantrums & Targets</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="tantrum">Tantrums</span> & <span class="target">Targets</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="scoreboard.html">Scoreboard</a>
+                <a href="roundtable.html">Roundtable</a>
+                <a href="methodology.html">Methodology</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <h1>The Methodology</h1>
+        <p class="text-muted">Everything we're testing, how we're testing it, and why.</p>
+
+        <!-- The Honest Truth -->
+        <h2>The Honest Truth</h2>
+        <p>Dollar-cost averaging into a low-cost S&P 500 index fund is probably the smartest thing most people can do with their investment dollars. The data is overwhelming. Most active managers underperform the index over time. Fees eat returns. Timing the market is a fool's errand.</p>
+        <p>We know this. And yet.</p>
+        <p>What if structured discipline and AI collaboration could help us buy quality companies when Mr. Market is having a tantrum? Not by being smarter than the market — we're not — but by being more disciplined?</p>
+        <p><strong>That's the experiment.</strong></p>
+
+        <!-- What We're Testing -->
+        <h2>What We're Testing</h2>
+        <div class="method-section">
+            <h3>Hypothesis</h3>
+            <p>A rules-based system with AI-assisted reasoning can identify temporary overreactions in quality stocks and achieve risk-adjusted returns comparable to or better than passive indexing.</p>
+        </div>
+        <div class="method-section">
+            <h3>Control</h3>
+            <p>We benchmark against VOO (S&P 500 Index). If we can't beat "buy VOO and go to the beach," then the experiment has failed — and we'll say so publicly.</p>
+        </div>
+
+        <!-- The Three Tracks -->
+        <h2>The Three-Track System</h2>
+        
+        <div class="method-section">
+            <h3>Track 1: Baseline DCA</h3>
+            <p>Every month, on the first trading day, we deploy a fixed allocation across the watchlist via limit orders at the prior day's close.</p>
+            <p><strong>The rule:</strong> Limit orders only. Never chase. If the stock gaps up and our limit doesn't fill, we move on — we'll get it next month.</p>
+            <p>This is the "boring" track that ensures we're always accumulating, regardless of what Mr. Market is doing.</p>
+        </div>
+
+        <div class="method-section" style="border-left-color: #ed8936;">
+            <h3>Track 2: Tantrums</h3>
+            <p>When a stock drops <strong>5% or more in a single day</strong>, that's a signal. Not necessarily a buy signal — but a "pay attention" signal.</p>
+            <p>The AI roundtable convenes to answer one question: <em>Is this a temporary overreaction, or is long-term earnings power actually impaired?</em></p>
+            <p><strong>Entry rule:</strong> Limit order at prior day's close. DAY order — if not filled by close, we mark it as "missed" and move on. No chasing.</p>
+            <p><strong>Reassessment:</strong> ~2 weeks after entry. TRIM if up 4%+. CONVERT to long-term hold if thesis intact. CUT if thesis weakening.</p>
+        </div>
+
+        <div class="method-section" style="border-left-color: #38a169;">
+            <h3>Track 3: Targets</h3>
+            <p>For each stock, we set a "tri-anchor" target price based on:</p>
+            <ul style="margin: 0.5rem 0; padding-left: 1.5rem;">
+                <li><strong>Historical valuation floor:</strong> Where has this stock traded during past corrections?</li>
+                <li><strong>Technical support:</strong> Price levels where buyers have historically stepped in.</li>
+                <li><strong>Margin-of-safety math:</strong> What price gives us reasonable margin of safety if we're wrong?</li>
+            </ul>
+            <p>When all three anchors point to roughly the same zone, we have a target. GTC limit orders sit patiently in the market, waiting.</p>
+        </div>
+
+        <!-- The Watchlist -->
+        <h2>The Watchlist</h2>
+        <p>25 stocks across the major sectors of the economy. We sought companies with durable moats, strong free cash flow, and "best of breed" status in their industries.</p>
+        
+        <h3>Tier 1: Core (15 stocks)</h3>
+        <table>
+            <tr><th>Ticker</th><th>Company</th><th>Sector</th></tr>
+            <tr><td class="ticker">VOO</td><td>S&P 500 Index</td><td>Benchmark</td></tr>
+            <tr><td class="ticker">MSFT</td><td>Microsoft</td><td>Technology</td></tr>
+            <tr><td class="ticker">AAPL</td><td>Apple</td><td>Technology</td></tr>
+            <tr><td class="ticker">NVDA</td><td>NVIDIA</td><td>Semiconductors</td></tr>
+            <tr><td class="ticker">ASML</td><td>ASML</td><td>Semiconductors</td></tr>
+            <tr><td class="ticker">BAC</td><td>Bank of America</td><td>Financials</td></tr>
+            <tr><td class="ticker">CB</td><td>Chubb</td><td>Insurance</td></tr>
+            <tr><td class="ticker">V</td><td>Visa</td><td>Payments</td></tr>
+            <tr><td class="ticker">MCO</td><td>Moody's</td><td>Ratings</td></tr>
+            <tr><td class="ticker">JNJ</td><td>Johnson & Johnson</td><td>Healthcare</td></tr>
+            <tr><td class="ticker">NVO</td><td>Novo Nordisk</td><td>Pharmaceuticals</td></tr>
+            <tr><td class="ticker">CVX</td><td>Chevron</td><td>Energy</td></tr>
+            <tr><td class="ticker">GEV</td><td>GE Vernova</td><td>Grid/Power</td></tr>
+            <tr><td class="ticker">GE</td><td>GE Aerospace</td><td>Aerospace</td></tr>
+            <tr><td class="ticker">WM</td><td>Waste Management</td><td>Waste Services</td></tr>
+        </table>
+
+        <h3>Tier 1B: Niche Dominators (10 stocks)</h3>
+        <table>
+            <tr><th>Ticker</th><th>Company</th><th>Sector</th></tr>
+            <tr><td class="ticker">ODFL</td><td>Old Dominion Freight</td><td>LTL Freight</td></tr>
+            <tr><td class="ticker">TYL</td><td>Tyler Technologies</td><td>Government Software</td></tr>
+            <tr><td class="ticker">FICO</td><td>Fair Isaac</td><td>Credit Scoring</td></tr>
+            <tr><td class="ticker">CPRT</td><td>Copart</td><td>Salvage Auctions</td></tr>
+            <tr><td class="ticker">IDXX</td><td>IDEXX Labs</td><td>Veterinary Diagnostics</td></tr>
+            <tr><td class="ticker">VRSN</td><td>Verisign</td><td>Domain Registry</td></tr>
+            <tr><td class="ticker">ROP</td><td>Roper Technologies</td><td>Software Compounder</td></tr>
+            <tr><td class="ticker">RSG</td><td>Republic Services</td><td>Waste Services</td></tr>
+            <tr><td class="ticker">JKHY</td><td>Jack Henry</td><td>Bank Core Software</td></tr>
+            <tr><td class="ticker">PWR</td><td>Quanta Services</td><td>Grid Infrastructure</td></tr>
+        </table>
+
+        <!-- The AI Roundtable -->
+        <h2>The AI Roundtable</h2>
+        <p>Every decision is debated by three AI analysts. We reveal that they're AI, but not <em>which</em> AI — to avoid tribalism and brand bias.</p>
+        
+        <div class="method-section">
+            <h3>The Auditor</h3>
+            <p>Focuses on rules, valuation, and strict adherence to methodology. The skeptic.</p>
+        </div>
+        <div class="method-section" style="border-left-color: #ed8936;">
+            <h3>The Narrator</h3>
+            <p>Watches macro, narrative, and sentiment. Asks what story the market is telling itself.</p>
+        </div>
+        <div class="method-section" style="border-left-color: #38a169;">
+            <h3>The Arbiter</h3>
+            <p>Synthesizes conflicting views and forces a final call: BUY or NONE.</p>
+        </div>
+
+        <h3>The Process</h3>
+        <ol style="margin: 1rem 0; padding-left: 1.5rem;">
+            <li><strong>Independent takes:</strong> Each analyst receives the same data and produces a structured response — without seeing the others.</li>
+            <li><strong>Cross-exam:</strong> Each analyst must attack one specific assumption from another.</li>
+            <li><strong>Synthesis:</strong> The Arbiter resolves conflicts and commits to a final decision.</li>
+        </ol>
+        <p><strong>Default bias:</strong> If no consensus, the decision is NONE. Not trading is a valid outcome.</p>
+
+        <!-- Transparency -->
+        <h2>Transparency Commitments</h2>
+        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+            <li><strong>Target Drift Log:</strong> If we change a target price, we document when and why.</li>
+            <li><strong>Correction Log:</strong> If we make a manual mistake, we document it.</li>
+            <li><strong>Scoreboard:</strong> Portfolio vs VOO, updated daily. The honest comparison.</li>
+            <li><strong>Roundtable Archive:</strong> Every debate preserved. The reasoning, not just the result.</li>
+        </ul>
+
+        <!-- What We Won't Do -->
+        <h2>What We Won't Do</h2>
+        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+            <li>Give investment advice (we're not licensed)</li>
+            <li>Hide losses or cherry-pick results</li>
+            <li>Chase hype or FOMO</li>
+            <li>Move goalposts when we're wrong</li>
+            <li>Monetize with paywalls or upsells</li>
+        </ul>
+
+        <!-- Annual Review -->
+        <h2>Annual Review</h2>
+        <p>First Saturday of February, every year. We review the watchlist, the targets, and the methodology. Changes are documented with reasoning.</p>
+
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors. Past performance does not guarantee future results. We may hold positions in the stocks discussed. You are responsible for your own decisions.
+        </div>
+        <p>© 2026 Tantrums & Targets</p>
+    </footer>
+</body>
+</html>

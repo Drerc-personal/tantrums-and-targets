@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roundtable: January 20, 2026 — Tantrums & Targets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        /* Additional styles for roundtable detail pages */
+        .analyst-response {
+            margin: 1.5rem 0;
+            padding: 1.25rem;
+            border-radius: 6px;
+            background: white;
+        }
+        .analyst-response.auditor {
+            border-left: 4px solid #2c5282;
+        }
+        .analyst-response.narrator {
+            border-left: 4px solid #ed8936;
+        }
+        .analyst-response.arbiter {
+            border-left: 4px solid #38a169;
+        }
+        .analyst-response .analyst-name {
+            font-family: var(--font-ui);
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .analyst-response .claims {
+            margin: 1rem 0;
+        }
+        .analyst-response .claims li {
+            margin-bottom: 0.5rem;
+        }
+        .meta-row {
+            display: flex;
+            gap: 2rem;
+            margin: 0.75rem 0;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .stock-section {
+            background: #f7fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .stock-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .stock-header h3 {
+            margin: 0;
+        }
+        .stock-stats {
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+        .synthesis-box {
+            background: #f0fff4;
+            border: 1px solid #38a169;
+            border-radius: 6px;
+            padding: 1.25rem;
+            margin-top: 1.5rem;
+        }
+        .lessons-section {
+            background: #fffaf0;
+            border: 1px solid #ed8936;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 2rem 0;
+        }
+        .lesson-item {
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed #e2e8f0;
+        }
+        .lesson-item:last-child {
+            border-bottom: none;
+        }
+        .lesson-ticker {
+            font-family: var(--font-ui);
+            font-weight: 600;
+            color: var(--primary);
+        }
+        .lesson-category {
+            font-family: var(--font-ui);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: var(--text-light);
+            margin-left: 0.5rem;
+        }
+        .known-facts {
+            background: #ebf8ff;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .known-facts strong {
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="tantrum">Tantrums</span> & <span class="target">Targets</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="scoreboard.html">Scoreboard</a>
+                <a href="roundtable.html">Roundtable</a>
+                <a href="methodology.html">Methodology</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <p class="text-muted"><a href="roundtable.html">← Back to Roundtable Archive</a></p>
+        
+        <h1>Roundtable: January 20, 2026</h1>
+        <p class="text-muted">Market close analysis. VOO down 2.0%. 11 of 25 watchlist stocks triggered alerts. 8 Track 3 candidates within 10% of target.</p>
+
+        <!-- Summary Table -->
+        <h2>Decisions Summary</h2>
+        <table>
+            <tr>
+                <th>Ticker</th>
+                <th>Auditor</th>
+                <th>Narrator</th>
+                <th>Final</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td class="ticker">ROP</td>
+                <td><span class="decision-badge buy">BUY</span> 72%</td>
+                <td><span class="decision-badge buy">BUY</span> 85%</td>
+                <td><span class="decision-badge buy">KEEP GTC</span></td>
+                <td>Maintain $400 × 10 shares</td>
+            </tr>
+            <tr>
+                <td class="ticker">MSFT</td>
+                <td><span class="decision-badge buy">BUY</span> 68%</td>
+                <td><span class="decision-badge buy">BUY</span> 90%</td>
+                <td><span class="decision-badge none">NONE</span></td>
+                <td>Already own 10 @ $450</td>
+            </tr>
+            <tr>
+                <td class="ticker">V</td>
+                <td><span class="decision-badge none">NONE</span> 80%</td>
+                <td><span class="decision-badge none">NONE</span> 70%</td>
+                <td><span class="decision-badge none">NONE</span></td>
+                <td>GTC $310.18 working</td>
+            </tr>
+        </table>
+
+        <!-- ROP Section -->
+        <div class="stock-section">
+            <div class="stock-header">
+                <h3>ROP — Roper Technologies</h3>
+                <div class="stock-stats">$403.76 → Target $400 (+0.9%) | Track 3</div>
+            </div>
+
+            <div class="known-facts">
+                <strong>Known Facts (Cited):</strong>
+                <ul style="margin: 0.5rem 0 0 1.5rem;">
+                    <li>Q3 2025 organic revenue growth: <strong>+6%</strong> (RoperTech company release, Oct 23, 2025)</li>
+                    <li>Q2 2025: +7%, Q1 2025: +5% — consistent mid-single digits</li>
+                    <li>Exit threshold is &lt;4% for 2+ years — currently 200 bps above threshold</li>
+                    <li>FY25 guidance was trimmed; slight revenue miss vs consensus (Nasdaq)</li>
+                    <li>Mar Vista Investment Partners exited a decade-long position</li>
+                    <li>Mizuho, RBC shifted to bearish narrative citing "AI commoditization" risk</li>
+                </ul>
+            </div>
+
+            <div class="analyst-response auditor">
+                <div class="analyst-name">The Auditor</div>
+                <span class="decision-badge buy">BUY</span>
+                <div class="meta-row">
+                    <span>Limit: $400</span>
+                    <span>Shares: 10</span>
+                    <span>Track: 3</span>
+                    <span>Confidence: 72%</span>
+                </div>
+                <div class="claims">
+                    <strong>Claims:</strong>
+                    <ol>
+                        <li>Forward P/E is 18.7, materially below Roper's typical high-20s / low-30s historical multiple.</li>
+                        <li>Price is only +0.9% above target and +0.9% above the 52-week low ($400.20), satisfying entry discipline.</li>
+                        <li>Stock is -8.5% below the 50-day MA, indicating technical dislocation rather than euphoria.</li>
+                    </ol>
+                </div>
+                <p><strong>Counterargument:</strong> Organic growth could structurally slow below 4% if end markets weaken or acquisitions fail to integrate, justifying multiple compression.</p>
+                <p><strong>Uncertainties:</strong> We do not yet have confirmation whether recent weakness is purely macro multiple compression or company-specific execution risk.</p>
+            </div>
+
+            <div class="analyst-response narrator">
+                <div class="analyst-name">The Narrator</div>
+                <span class="decision-badge buy">BUY</span>
+                <div class="meta-row">
+                    <span>Limit: $400</span>
+                    <span>Shares: 10</span>
+                    <span>Track: 3</span>
+                    <span>Confidence: 85%</span>
+                </div>
+                <div class="claims">
+                    <strong>Claims:</strong>
+                    <ol>
+                        <li><strong>The "Quality Compounder" Discount:</strong> The market is treating Roper's niche software portfolio as a monolith, ignoring the defensive nature of its high-retention, specialized application businesses.</li>
+                        <li><strong>Post-Acquisition Indigestion Narrative:</strong> Sentiment has soured on the "serial acquirer" model in a higher-for-longer rate environment, creating a disconnect between perceived risk and actual cash flow.</li>
+                        <li><strong>Proximity to "Panic Bottom":</strong> Trading just 0.9% above its 52-week low suggests a technical capitulation point where selling exhaustion often meets value-hunting buyers.</li>
+                    </ol>
+                </div>
+                <p><strong>Counterargument:</strong> If organic growth remains sub-4% into the Q4 report, the narrative shifts from "temporary dip" to "structural stagnation," potentially forcing a re-rating of the Forward P/E toward 15x.</p>
+                <p><strong>Uncertainties:</strong> The market may be correctly pricing in a significant slowdown in the "Engine" acquisition pipeline due to tight credit spreads or high seller expectations.</p>
+            </div>
+
+            <div class="synthesis-box">
+                <div class="analyst-response arbiter" style="border-left: none; padding: 0; background: transparent;">
+                    <div class="analyst-name">The Arbiter — Synthesis</div>
+                    <span class="decision-badge buy">KEEP GTC</span>
+                    <p style="margin-top: 1rem;"><strong>Agreement:</strong> Both analysts agree this is a textbook Track 3 entry. Quality compounder at a 3-year valuation low. Fundamentals intact. Price decline is narrative-driven, not structural impairment.</p>
+                    <p><strong>Conflict:</strong> None. Unanimous BUY.</p>
+                    <p><strong>Resolution:</strong> GTC already working at $400 × 10 shares (placed Jan 7). No new action required. Maintain order.</p>
+                    <p><strong>Primary Decline Driver:</strong> Multiple compression + narrative shift ("AI fatigue" thesis that AI could commoditize Roper's specialized software), compounded by institutional selling. <em>Not</em> organic growth deterioration.</p>
+                    <p><strong>Upgrade Trigger:</strong> Fill at $400; then watch for ADD opportunity at $380 if decline continues without thesis break.</p>
+                    <p><strong>Downgrade Trigger:</strong> Organic growth drops below 4% for 2+ consecutive quarters; acquisition integration failures.</p>
+                    <p><strong>Calendar Flag:</strong> Q4 2025 earnings ~January 27-28, 2026. Verify organic growth holds ≥5%.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- MSFT Section -->
+        <div class="stock-section">
+            <div class="stock-header">
+                <h3>MSFT — Microsoft</h3>
+                <div class="stock-stats">$454.52 → Target $450 (+1.0%) | Track 3</div>
+            </div>
+
+            <div class="analyst-response auditor">
+                <div class="analyst-name">The Auditor</div>
+                <span class="decision-badge buy">BUY</span>
+                <div class="meta-row">
+                    <span>Limit: $450</span>
+                    <span>Shares: 8</span>
+                    <span>Track: 3</span>
+                    <span>Confidence: 68%</span>
+                </div>
+                <div class="claims">
+                    <strong>Claims:</strong>
+                    <ol>
+                        <li>Forward P/E of 24.2 is reasonable for a Tier-1 compounder with durable cloud and platform economics.</li>
+                        <li>Price is only +1.0% above target, allowing compliant limit placement without chasing.</li>
+                        <li>Stock is -6.0% below 50-day MA, indicating a short-term pullback rather than structural overvaluation.</li>
+                    </ol>
+                </div>
+                <p><strong>Counterargument:</strong> Azure growth deceleration could compress the multiple if enterprise cloud spending weakens more than expected.</p>
+            </div>
+
+            <div class="analyst-response narrator">
+                <div class="analyst-name">The Narrator</div>
+                <span class="decision-badge buy">BUY</span>
+                <div class="meta-row">
+                    <span>Limit: $450</span>
+                    <span>Shares: 5</span>
+                    <span>Track: 3</span>
+                    <span>Confidence: 90%</span>
+                </div>
+                <div class="claims">
+                    <strong>Claims:</strong>
+                    <ol>
+                        <li><strong>The "AI Fatigue" Shakeout:</strong> Investors are rotating out of the "AI Inevitability" trade ahead of earnings, demanding proof of Azure monetization rather than just capacity expansion.</li>
+                        <li><strong>Enterprise Budget Resilience:</strong> The narrative of "Software as a Deflationary Force" remains intact; Microsoft is the last line item cut in enterprise budgets.</li>
+                        <li><strong>Technical Reversion:</strong> At 6% below the 50-day MA, MSFT is entering an oversold territory not seen since the mid-2025 volatility spikes.</li>
+                    </ol>
+                </div>
+                <p><strong>Counterargument:</strong> The "Azure slowing" narrative could gain legs if enterprise AI adoption is delayed by internal integration hurdles, leading to a "lost year" for the stock price.</p>
+            </div>
+
+            <div class="synthesis-box">
+                <div class="analyst-response arbiter" style="border-left: none; padding: 0; background: transparent;">
+                    <div class="analyst-name">The Arbiter — Synthesis</div>
+                    <span class="decision-badge none">NONE</span>
+                    <p style="margin-top: 1rem;"><strong>Resolution:</strong> Position already established. We own 10 shares at $450 (filled Jan 21). This is the starter allocation at the START SMALL target. Per our rules, next action is at the ADD target ($445) or post-earnings if thesis confirmed.</p>
+                    <p><strong>Upgrade Trigger:</strong> Post-earnings dip to $445 with Azure growth ≥15%.</p>
+                    <p><strong>Downgrade Trigger:</strong> Azure growth &lt;15% for 3+ quarters.</p>
+                    <p><strong>Earnings:</strong> January 27, 2026.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- V Section -->
+        <div class="stock-section">
+            <div class="stock-header">
+                <h3>V — Visa</h3>
+                <div class="stock-stats">$325.82 → Target $310 (+5.1%) | Track 3</div>
+            </div>
+
+            <div class="analyst-response auditor">
+                <div class="analyst-name">The Auditor</div>
+                <span class="decision-badge none">NONE</span>
+                <div class="meta-row">
+                    <span>Confidence: 80%</span>
+                </div>
+                <div class="claims">
+                    <strong>Claims:</strong>
+                    <ol>
+                        <li>Price remains +5.1% above the $310 target, violating strict no-chase discipline.</li>
+                        <li>Trailing P/E of 31.9 and forward P/E of 22.6 are not distressed valuations.</li>
+                        <li>Stock is only modestly below the 50-day MA (-3.8%), indicating limited dislocation.</li>
+                    </ol>
+                </div>
+                <p><strong>Conclusion:</strong> Entry rules are not yet satisfied and valuation is not compelling enough to override discipline.</p>
+            </div>
+
+            <div class="analyst-response narrator">
+                <div class="analyst-name">The Narrator</div>
+                <span class="decision-badge none">NONE</span>
+                <div class="meta-row">
+                    <span>Confidence: 70%</span>
+                </div>
+                <div class="claims">
+                    <strong>Claims:</strong>
+                    <ol>
+                        <li><strong>The "Wait-and-See" Consumer:</strong> While holiday spending was robust, the narrative for early 2026 is shifting toward "credit exhaustion," making the market hesitant to bid up payment processors.</li>
+                        <li><strong>Regulatory Overhang:</strong> Ongoing chatter regarding domestic interchange fee caps remains a persistent "gray swan."</li>
+                        <li><strong>No Blood in the Streets:</strong> At 5.1% above target and 9.6% above 52-week low, there is no "panic" to exploit yet.</li>
+                    </ol>
+                </div>
+                <p><strong>Conclusion:</strong> There is no narrative catalyst to force a buy today when the price is still meaningfully above our "Start Small" anchor.</p>
+            </div>
+
+            <div class="synthesis-box">
+                <div class="analyst-response arbiter" style="border-left: none; padding: 0; background: transparent;">
+                    <div class="analyst-name">The Arbiter — Synthesis</div>
+                    <span class="decision-badge none">NONE</span>
+                    <p style="margin-top: 1rem;"><strong>Resolution:</strong> Unanimous NONE. Price 5.1% above target. No dislocation. GTC at $310.18 already working. Patience.</p>
+                    <p><strong>Upgrade Trigger:</strong> Price reaches $310 target.</p>
+                    <p><strong>Downgrade Trigger:</strong> Regulatory action on interchange fees; payment volume growth &lt;5% sustained.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lessons Section -->
+        <div class="lessons-section">
+            <h2 style="margin-top: 0; color: #c05621;">Lessons Logged</h2>
+            <p class="text-muted">What we learned from today's roundtable — for the February annual review.</p>
+            
+            <div class="lesson-item">
+                <span class="lesson-ticker">ROP</span>
+                <span class="lesson-category">Valuation</span>
+                <p style="margin: 0.5rem 0 0;">Multiple compression ≠ thesis break. Verify organic growth at earnings.</p>
+            </div>
+            
+            <div class="lesson-item">
+                <span class="lesson-ticker">MSFT</span>
+                <span class="lesson-category">Position Sizing</span>
+                <p style="margin: 0.5rem 0 0;">Starter filled; discipline says wait for ADD target or earnings clarity.</p>
+            </div>
+            
+            <div class="lesson-item">
+                <span class="lesson-ticker">General</span>
+                <span class="lesson-category">Execution</span>
+                <p style="margin: 0.5rem 0 0;">Market orders = rookie mistakes. GTCs enforce discipline.</p>
+            </div>
+        </div>
+
+        <!-- Navigation -->
+        <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+            <span class="text-muted">← Previous: None (First Roundtable)</span>
+            <span class="text-muted">Next: TBD →</span>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors. Past performance does not guarantee future results. We may hold positions in the stocks discussed. You are responsible for your own decisions.
+        </div>
+        <p>© 2026 Tantrums & Targets</p>
+    </footer>
+</body>
+</html>

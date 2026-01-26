@@ -1,0 +1,23 @@
+# Excel temporary/lock files
+~$*.xlsx
+~$*.ods
+
+# Python caches
+__pycache__/
+*.pyc
+*.pyo
+
+# Virtual environment
+venv/
+.venv/
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Drafts folder (archived files)
+Drafts/
+
+# Large data files (optional - uncomment if you want to exclude)
+# *.xlsx
+# *.ods

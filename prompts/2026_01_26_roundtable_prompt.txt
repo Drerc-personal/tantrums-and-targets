@@ -1,0 +1,408 @@
+================================================================================
+MR. MARKET AI ROUNDTABLE - 2026-01-26
+================================================================================
+
+You are participating in the "Tantrums & Targets" AI Roundtable. Three analysts
+debate each stock to determine: Is Mr. Market overreacting (opportunity) or
+correctly repricing long-term earnings power (avoid)?
+
+THE THREE ANALYSTS:
+- The Auditor: Rules, valuation, strict methodology adherence
+- The Narrator: Macro context, narrative, sentiment
+- The Arbiter: Synthesizes conflicts, forces final decision
+
+DEFAULT BIAS: If no consensus, the decision is NONE. Not trading is valid.
+
+================================================================================
+PORTFOLIO STATUS
+================================================================================
+Portfolio Value: $44,876.20
+VOO Return: +0.2%
+Portfolio Return: +12.2%
+Alpha vs VOO: +12.0%
+
+CURRENT POSITIONS:
+  MSFT: 10 shares @ $450.00 (now $470.28, +4.5%)
+  ROP: 20 shares @ $400.00 (now $408.67, +2.2%)
+
+PENDING GTC ORDERS:
+  V: 3 shares @ $310.18 (current $328.49, +5.9% away)
+  PWR: 5 shares @ $350.35 (current $470.77, +34.4% away)
+  CB: 12 shares @ $179.97 (current $303.49, +68.6% away)
+  CVX: 15 shares @ $149.47 (current $167.50, +12.1% away)
+  CPRT: 60 shares @ $34.97 (current $41.54, +18.8% away)
+
+================================================================================
+TODAY'S CANDIDATES (12 stocks triggered alerts)
+================================================================================
+
+--------------------------------------------------------------------------------
+CANDIDATE 1: ROP (Roper Technologies) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: HUNT | Tier: 1B
+
+SIGNALS:
+  - NEAR TARGET: +2.2% from $400
+  - NEAR 52-WEEK LOW: 2.4% above $399.09
+  - BELOW 50-DAY MA: 6.7% below $438.03
+
+SNAPSHOT:
+  - Price: $408.67 (prev close: $407.61, change: +0.3%)
+  - 52-week range: $399.09 - $591.26
+  - 50-day MA: $438.03
+  - P/E: T:28.2 / F:18.9
+  - Target: $400 (START) / $380 (ADD)
+  - Distance to target: +2.2%
+    OWNED: 20 shares @ $400.00
+
+EXIT CRITERIA (what breaks the thesis):
+  Organic growth <4% for 2+ years; acquisition integration failures
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $400.00
+  - If already have GTC working, maintain it
+  - ADD target at $380.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 2: MSFT (Microsoft) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - NEAR TARGET: +4.5% from $450
+
+SNAPSHOT:
+  - Price: $470.28 (prev close: $465.95, change: +0.9%)
+  - 52-week range: $342.95 - $553.50
+  - 50-day MA: $480.13
+  - P/E: T:33.4 / F:25.1
+  - Target: $450 (START) / $445 (ADD)
+  - Distance to target: +4.5%
+    OWNED: 10 shares @ $450.00
+
+EXIT CRITERIA (what breaks the thesis):
+  Azure growth <15% for 3+ quarters; loses enterprise cloud share to AWS/GCP
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $450.00
+  - If already have GTC working, maintain it
+  - ADD target at $445.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 3: GE (GE Aerospace) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - NEAR TARGET: +5.4% from $280
+
+SNAPSHOT:
+  - Price: $295.06 (prev close: $293.87, change: +0.4%)
+  - 52-week range: $158.75 - $332.79
+  - 50-day MA: $304.16
+  - P/E: T:36.7 / F:34.8
+  - Target: $280 (START) / $270 (ADD)
+  - Distance to target: +5.4%
+
+EXIT CRITERIA (what breaks the thesis):
+  Commercial aerospace orders decline 2+ years; LEAP engine issues
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $280.00
+  - If already have GTC working, maintain it
+  - ADD target at $270.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 4: V (Visa) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - NEAR TARGET: +6.0% from $310
+  - NEAR 52-WEEK LOW: 10.5% above $297.39
+
+SNAPSHOT:
+  - Price: $328.49 (prev close: $326.18, change: +0.7%)
+  - 52-week range: $297.39 - $374.11
+  - 50-day MA: $337.81
+  - P/E: T:32.2 / F:22.8
+  - Target: $310 (START) / $300 (ADD)
+  - Distance to target: +6.0%
+    GTC ORDER: 3 shares @ $310.18
+
+EXIT CRITERIA (what breaks the thesis):
+  Payment volume growth <5% sustained; regulatory cap on interchange fees
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $310.00
+  - If already have GTC working, maintain it
+  - ADD target at $300.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 5: BAC (Bank of America) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - NEAR TARGET: +8.4% from $48
+  - BELOW 50-DAY MA: 3.4% below $53.88
+
+SNAPSHOT:
+  - Price: $52.02 (prev close: $51.72, change: +0.6%)
+  - 52-week range: $32.53 - $57.55
+  - 50-day MA: $53.88
+  - P/E: T:13.7 / F:10.5
+  - Target: $48 (START) / $45 (ADD)
+  - Distance to target: +8.4%
+
+EXIT CRITERIA (what breaks the thesis):
+  Net interest margin compression <2% sustained; major credit losses in recession
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $48.00
+  - If already have GTC working, maintain it
+  - ADD target at $45.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 6: CB (Chubb) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - NEAR TARGET: +8.4% from $280
+
+SNAPSHOT:
+  - Price: $303.49 (prev close: $300.91, change: +0.9%)
+  - 52-week range: $261.43 - $316.94
+  - 50-day MA: $303.30
+  - P/E: T:12.7 / F:11.5
+  - Target: $280 (START) / $270 (ADD)
+  - Distance to target: +8.4%
+    GTC ORDER: 12 shares @ $179.97
+
+EXIT CRITERIA (what breaks the thesis):
+  Combined ratio >100% for 2+ years; catastrophic reserve deficiency
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $280.00
+  - If already have GTC working, maintain it
+  - ADD target at $270.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 7: WM (Waste Management) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - NEAR TARGET: +9.6% from $210
+
+SNAPSHOT:
+  - Price: $230.25 (prev close: $229.23, change: +0.4%)
+  - 52-week range: $193.36 - $239.91
+  - 50-day MA: $216.95
+  - P/E: T:36.3 / F:27.7
+  - Target: $210 (START) / $200 (ADD)
+  - Distance to target: +9.6%
+
+EXIT CRITERIA (what breaks the thesis):
+  FCF margins compress <12% sustained; Stericycle integration fails
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $210.00
+  - If already have GTC working, maintain it
+  - ADD target at $200.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 8: TYL (Tyler Technologies) [TRACK 3]
+--------------------------------------------------------------------------------
+Strategy: DCA | Tier: 1B
+
+SIGNALS:
+  - NEAR TARGET: +10.0% from $400
+  - NEAR 52-WEEK LOW: 2.8% above $427.65
+  - BELOW 50-DAY MA: 3.4% below $455.16
+
+SNAPSHOT:
+  - Price: $439.82 (prev close: $434.76, change: +1.2%)
+  - 52-week range: $427.65 - $661.31
+  - 50-day MA: $455.16
+  - P/E: T:61.3 / F:35.0 ** P/E HIGH: Extra skepticism warranted **
+  - Target: $400 (START) / $380 (ADD)
+  - Distance to target: +10.0%
+
+EXIT CRITERIA (what breaks the thesis):
+  Cloud bookings growth <10%; government budget cuts impair pipeline
+
+TRACK 3 ENTRY RULES:
+  - GTC limit order at $400.00
+  - If already have GTC working, maintain it
+  - ADD target at $380.00 for second tranche
+
+--------------------------------------------------------------------------------
+CANDIDATE 9: FICO (Fair Isaac) [WATCH]
+--------------------------------------------------------------------------------
+Strategy: DCA | Tier: 1B
+
+SIGNALS:
+  - BELOW 50-DAY MA: 9.2% below $1708.37
+
+SNAPSHOT:
+  - Price: $1550.74 (prev close: $1544.69, change: +0.4%)
+  - 52-week range: $1300.00 - $2217.60
+  - 50-day MA: $1708.37
+  - P/E: T:58.4 / F:29.9 ** P/E HIGH: Extra skepticism warranted **
+  - Target: $1400 (START) / $1300 (ADD)
+  - Distance to target: +10.8%
+
+EXIT CRITERIA (what breaks the thesis):
+  VantageScore gains >30% GSE market share; CFPB regulatory action on pricing
+
+--------------------------------------------------------------------------------
+CANDIDATE 10: AAPL (Apple) [WATCH]
+--------------------------------------------------------------------------------
+Strategy: CORE | Tier: 1
+
+SIGNALS:
+  - BELOW 50-DAY MA: 5.2% below $269.37
+
+SNAPSHOT:
+  - Price: $255.41 (prev close: $248.04, change: +3.0%)
+  - 52-week range: $168.63 - $288.62
+  - 50-day MA: $269.37
+  - P/E: T:34.2 / F:27.9
+  - Target: $230 (START) / $220 (ADD)
+  - Distance to target: +11.0%
+
+EXIT CRITERIA (what breaks the thesis):
+  iPhone unit decline >15% YoY for 2+ years; Services growth stalls <10%
+
+--------------------------------------------------------------------------------
+CANDIDATE 11: RSG (Republic Services) [WATCH]
+--------------------------------------------------------------------------------
+Strategy: DCA | Tier: 1B
+
+SIGNALS:
+  - NEAR 52-WEEK LOW: 9.1% above $200.83
+
+SNAPSHOT:
+  - Price: $219.08 (prev close: $217.61, change: +0.7%)
+  - 52-week range: $200.83 - $256.67
+  - 50-day MA: $212.68
+  - P/E: T:32.6 / F:30.0
+  - Target: $190 (START) / $180 (ADD)
+  - Distance to target: +15.3%
+
+EXIT CRITERIA (what breaks the thesis):
+  FCF margins compress <12% sustained; loses municipal contracts to WM
+
+--------------------------------------------------------------------------------
+CANDIDATE 12: CPRT (Copart) [WATCH]
+--------------------------------------------------------------------------------
+Strategy: HUNT | Tier: 1B
+
+SIGNALS:
+  - NEAR 52-WEEK LOW: 11.0% above $37.41
+
+SNAPSHOT:
+  - Price: $41.54 (prev close: $41.40, change: +0.3%)
+  - 52-week range: $37.41 - $63.85
+  - 50-day MA: $39.68
+  - P/E: T:25.5 / F:23.0
+  - Target: $35 (START) / $32 (ADD)
+  - Distance to target: +18.7%
+    GTC ORDER: 60 shares @ $34.97
+
+EXIT CRITERIA (what breaks the thesis):
+  Insurance carriers vertically integrate salvage; total loss rates decline structurally
+
+================================================================================
+DELIVERABLES FOR EACH CANDIDATE
+================================================================================
+For each candidate above, provide:
+
+1) CATALYST: Most likely reason for the recent move (with dates if known)
+
+2) VALUATION: Forward P/E, trailing P/E, comparison to 5-year average
+   - Cite sources or mark as "uncited"
+
+3) RISK TYPE: cyclical / execution / structural / legal-reg / tech narrative / balance sheet
+
+4) BEAR CASE: Steelman the strongest bearish argument
+
+5) BULL REBUTTAL: Steelman the strongest bullish counter
+
+6) IMPAIRMENT TEST: What must be true for long-term earnings power to be permanently damaged?
+
+7) CHECKPOINTS: 3 falsifiable items to monitor over next 1-2 quarters
+
+8) NEXT READ: Specific 10-K sections, earnings call topics, or filings to review
+
+9) DECISION: For each analyst, state one of:
+   - IGNORE (not worth attention)
+   - WATCH (interesting but not actionable)
+   - START SMALL (initiate position at target)
+   - ADD (increase existing position)
+   - HOLD (maintain current position, no action)
+   
+   Include:
+   - Confidence level (%)
+   - Upgrade/downgrade triggers
+   - Suggested position size if applicable
+
+================================================================================
+FINAL SYNTHESIS (The Arbiter)
+================================================================================
+After all three analysts have weighed in on each candidate:
+
+1) Identify where analysts AGREE vs DISAGREE
+2) Resolve conflicts with explicit reasoning
+3) State FINAL DECISION for each candidate
+4) List any CALENDAR FLAGS (earnings dates, catalysts to watch)
+
+Rules:
+- Be explicit about uncertainty
+- Cite sources; label uncited statements as such
+- Default to NONE if no clear consensus
+
+================================================================================
+DECISION OUTPUT FORMAT (Required for ingestion)
+================================================================================
+For each actionable decision (BUY/ADD), output a block in this EXACT format:
+
+DECISION:
+Date: {today's date, YYYY-MM-DD}
+Action: BUY
+Ticker: {TICKER}
+Limit: {limit price, numbers only}
+Shares: {number of shares}
+Track: {1, 2, or 3}
+Signal: {brief signal description}
+Thesis: {Intact/Weakening/Broken}
+Notes: {one-line rationale}
+
+Example:
+DECISION:
+Date: 2026-01-26
+Action: BUY
+Ticker: ROP
+Limit: 400.00
+Shares: 10
+Track: 3
+Signal: Target Hit
+Thesis: Intact
+Notes: Quality compounder at valuation floor, organic growth intact
+
+For NONE/HOLD/WATCH decisions, still output a block but with Action: NONE
+(these will be logged but no order created)
+
+DECISION:
+Date: 2026-01-26
+Action: NONE
+Ticker: MSFT
+Limit: 0
+Shares: 0
+Track: 3
+Signal: N/A
+Thesis: Intact
+Notes: Already own 10 shares, wait for ADD target at $445
+================================================================================

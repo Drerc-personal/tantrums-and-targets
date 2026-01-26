@@ -1,0 +1,29 @@
+<svg width="380" height="55" viewBox="0 0 380 55" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .wordmark { 
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+        font-weight: 800; 
+        font-size: 30px; 
+        letter-spacing: -0.5px; 
+      }
+      .tantrum { fill: #ED8936; }
+      .ampersand { fill: #A0AEC0; font-weight: 600; font-size: 26px; }
+      .target { fill: #38A169; }
+    </style>
+  </defs>
+  
+  <!-- Tantrums text -->
+  <text x="5" y="38" class="wordmark tantrum">TANTRUMS</text>
+  
+  <!-- Ampersand with proper spacing -->
+  <text x="175" y="38" class="wordmark ampersand">&amp;</text>
+  
+  <!-- Targets text with proper spacing -->
+  <text x="215" y="38" class="wordmark target">TARGETS</text>
+  
+  <!-- Bullseye accent mark above the T -->
+  <circle cx="220" cy="10" r="5" fill="none" stroke="#38A169" stroke-width="2"/>
+  <circle cx="220" cy="10" r="2" fill="#38A169"/>
+  
+</svg>
