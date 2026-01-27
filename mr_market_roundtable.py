@@ -379,6 +379,11 @@ def reconcile_pending_orders(wb, market_data):
         
         order_date = normalize_date(order_date_raw)
         
+        # Skip orders with missing dates (malformed data)
+        if not order_date:
+            print(f"    SKIPPED: {ticker} - Missing order date")
+            continue
+        
         # Skip future-dated orders
         if order_date and trade_date and order_date > trade_date:
             continue
@@ -408,14 +413,11 @@ def reconcile_pending_orders(wb, market_data):
             
             elif str(track) in ['1', '2']:
                 # Track 1/2 are DAY orders: expire if trade_date >= order_date and not filled
-                # This means they had their chance (on order_date) and missed
-                if order_date and trade_date and trade_date >= order_date:
-                    expirations.append({'ticker': ticker, 'limit': limit_price})
-                    rows_to_delete.append(row)
-                    print(f"    EXPIRED: {ticker} DAY order @ ${limit_price:.2f} (order date: {order_date})")
-                else:
-                    # Future-dated DAY order, keep for now
-                    kept.append({'ticker': ticker, 'limit': limit_price, 'note': 'future DAY order'})
+                # By this point, we know order_date <= trade_date (future orders skipped earlier)
+                # So this order had its chance and missed - expire it
+                expirations.append({'ticker': ticker, 'limit': limit_price})
+                rows_to_delete.append(row)
+                print(f"    EXPIRED: {ticker} DAY order @ ${limit_price:.2f} (order date: {order_date})")
             else:
                 kept.append({'ticker': ticker, 'limit': limit_price})
                 print(f"    KEPT: {ticker} GTC @ ${limit_price:.2f}")
@@ -690,7 +692,7 @@ def build_roundtable_prompt(alerts, market_data, portfolio_stats, positions, pen
     regime_suspended, regime_count = regime_status
     portfolio_value, voo_return, portfolio_return, alpha = portfolio_stats
     
-    # 5.3.1 - Header
+    # 5.3.1 - Header with role-specific instructions
     prompt = f"""
 ================================================================================
 MR. MARKET AI ROUNDTABLE - {trade_date}
@@ -700,10 +702,37 @@ You are participating in the "Tantrums & Targets" AI Roundtable. Three analysts
 debate each stock to determine: Is Mr. Market overreacting (opportunity) or
 correctly repricing long-term earnings power (avoid)?
 
-THE THREE ANALYSTS:
-- The Auditor: Rules, valuation, strict methodology adherence
-- The Narrator: Macro context, narrative, sentiment
-- The Arbiter: Synthesizes conflicts, forces final decision
+================================================================================
+YOUR ROLE (read the section that applies to you)
+================================================================================
+
+**IF YOU ARE CHATGPT (GPT-4, GPT-4o, etc.):**
+You are THE AUDITOR. Your job is rules, valuation, and strict methodology.
+- Focus on: P/E ratios vs historical averages, distance to target prices,
+  whether entry rules are satisfied, exit criteria status
+- Your bias: Skeptical. Numbers must justify the trade.
+- Ask: "Do the valuations support this?" and "Are we following our own rules?"
+- Flag any rule violations or methodology drift
+- End your analysis for each stock with: "AUDITOR VERDICT: [DECISION] ([CONFIDENCE]%)"
+
+**IF YOU ARE GEMINI (Google):**
+You are THE NARRATOR. Your job is macro context, narrative, and sentiment.
+- Focus on: What story is the market telling? What's the catalyst? 
+  What are institutions doing? What's the sentiment shift?
+- Your bias: Context matters. The "why" behind the move.
+- Ask: "What narrative is driving this?" and "Is sentiment overshooting?"
+- Identify narrative tailwinds/headwinds that the numbers might miss
+- End your analysis for each stock with: "NARRATOR VERDICT: [DECISION] ([CONFIDENCE]%)"
+
+**IF YOU ARE CLAUDE (Anthropic):**
+You are THE ARBITER. Your job is synthesis and final decisions.
+- Focus on: Where do Auditor and Narrator agree/disagree? 
+  Resolve conflicts with explicit reasoning.
+- Your bias: Decisive. Must commit to a final call.
+- Ask: "Given both perspectives, what's the right action?"
+- Force a decision even when uncertain - NONE is a valid decision
+- Output the final DECISION blocks in the required format for ingestion
+- End your synthesis with: "ARBITER FINAL DECISION: [DECISION]"
 
 DEFAULT BIAS: If no consensus, the decision is NONE. Not trading is valid.
 
@@ -913,7 +942,7 @@ Thesis: Intact
 Notes: Quality compounder at valuation floor, organic growth intact
 
 For NONE/HOLD/WATCH decisions, still output a block but with Action: NONE
-(these will be logged but no order created)
+(no order created - the decision file itself serves as the audit trail)
 
 DECISION:
 Date: 2026-01-26
