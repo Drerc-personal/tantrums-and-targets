@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roundtable: February 2, 2026 – Tantrums & Targets</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        .methodology-fix {
+            background: #ebf8ff;
+            border: 2px solid #3182ce;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .methodology-fix h3 {
+            color: #2c5282;
+            margin-top: 0;
+        }
+        .lesson-box {
+            background: #fffaf0;
+            border: 1px solid #ed8936;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .pass { color: #38a169; font-weight: 600; }
+        .fail { color: #e53e3e; font-weight: 600; }
+        .watch { color: #d69e2e; font-weight: 600; }
+        .code-block {
+            background: #1a202c;
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 6px;
+            font-family: monospace;
+            font-size: 0.85rem;
+            overflow-x: auto;
+            margin: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="tantrum">Tantrums</span> & <span class="target">Targets</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="scoreboard.html">Scoreboard</a>
+                <a href="roundtable.html">Roundtable</a>
+                <a href="methodology.html">Methodology</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <p class="text-muted"><a href="roundtable.html">← Back to Roundtable Archive</a></p>
+        
+        <h1>Roundtable: February 2, 2026</h1>
+        <p class="text-muted"><strong>The Auditor Catches a Bug:</strong> ChatGPT flags a critical methodology drift in our Track 3 logic. Code fix deployed. No trades today.</p>
+
+        <!-- Market Context -->
+        <h2>Market Context</h2>
+        <p>A quiet Monday with 9 stocks triggering alerts but zero Track 2 tantrums. The real story today isn't market action—it's the Auditor catching a fundamental flaw in how our system generates entry rules. When prices drop <em>below</em> our targets, telling the AI to "place a GTC at target" creates an immediately marketable order. That's not discipline—that's a bug.</p>
+
+        <div class="scoreboard-summary" style="margin: 1.5rem 0;">
+            <div class="score-card">
+                <div class="label">Portfolio Value</div>
+                <div class="value">$43,686</div>
+            </div>
+            <div class="score-card">
+                <div class="label">vs VOO</div>
+                <div class="value positive">+8.7%</div>
+            </div>
+            <div class="score-card">
+                <div class="label">Positions</div>
+                <div class="value">2 / 25</div>
+            </div>
+        </div>
+
+        <!-- The Methodology Fix -->
+        <div class="methodology-fix">
+            <h3>🔧 Methodology Fix: Track 3 GTC Logic (v1.1)</h3>
+            <p><strong>The Bug (caught by The Auditor):</strong></p>
+            <p>Our prompt generator was outputting "GTC limit order at $TARGET" regardless of current price. When MSFT trades at $423 and we say "GTC at $450," that's a buy limit <em>above</em> market—it fills instantly. Not a waiting order. Not discipline.</p>
+            
+            <p style="margin-top: 1rem;"><strong>The Fix (deployed today):</strong></p>
+            <table style="width: 100%; margin: 1rem 0; font-size: 0.9rem;">
+                <tr>
+                    <th>Scenario</th>
+                    <th>Condition</th>
+                    <th>Status</th>
+                    <th>Limit Price</th>
+                </tr>
+                <tr>
+                    <td>1. WAITING</td>
+                    <td>price > target</td>
+                    <td>Keep GTC working</td>
+                    <td>Target price</td>
+                </tr>
+                <tr>
+                    <td>2. ELIGIBLE TO BUY</td>
+                    <td>price ≤ target AND not owned</td>
+                    <td>Can buy now</td>
+                    <td>Prior close</td>
+                </tr>
+                <tr>
+                    <td>3. ELIGIBLE TO ADD</td>
+                    <td>price ≤ add_target AND owned</td>
+                    <td>Can add now</td>
+                    <td>Prior close</td>
+                </tr>
+                <tr>
+                    <td>4. HOLD ZONE</td>
+                    <td>price between targets AND owned</td>
+                    <td>Wait for ADD</td>
+                    <td>N/A</td>
+                </tr>
+            </table>
+            
+            <p><strong>The Golden Rule:</strong> NEVER place a buy limit above the prior day's close. Ever.</p>
+            
+            <p style="margin-top: 1rem;"><strong>Script updated:</strong> <code>mr_market_roundtable.py</code> v1.0 → v1.1</p>
+        </div>
+
+        <!-- Today's Candidates Summary -->
+        <h2>Today's Candidates</h2>
+        <table>
+            <tr>
+                <th>Ticker</th>
+                <th>Price</th>
+                <th>Target</th>
+                <th>Status</th>
+                <th>Auditor</th>
+                <th>Narrator</th>
+                <th>Final</th>
+            </tr>
+            <tr style="background: #fff5f5;">
+                <td class="ticker">TYL</td>
+                <td>$362.88</td>
+                <td>$400</td>
+                <td>ELIGIBLE TO BUY</td>
+                <td>WATCH (75%)</td>
+                <td>WATCH (75%)</td>
+                <td><span class="decision-badge none">NONE</span></td>
+            </tr>
+            <tr style="background: #fff5f5;">
+                <td class="ticker">ROP</td>
+                <td>$372.61</td>
+                <td>$400/$380</td>
+                <td>ELIGIBLE TO ADD</td>
+                <td>HOLD (80%)</td>
+                <td>HOLD (85%)</td>
+                <td><span class="decision-badge none">NONE</span></td>
+            </tr>
+            <tr style="background: #fff5f5;">
+                <td class="ticker">MSFT</td>
+                <td>$423.37</td>
+                <td>$450/$445</td>
+                <td>ELIGIBLE TO ADD</td>
+                <td>HOLD (85%)</td>
+                <td>HOLD (90%)</td>
+                <td><span class="decision-badge none">NONE</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">FICO</td>
+                <td>$1,450.91</td>
+                <td>$1,400</td>
+                <td>WAITING</td>
+                <td>WATCH (70%)</td>
+                <td>WATCH (80%)</td>
+                <td><span class="decision-badge none">NONE</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">WM</td>
+                <td>$223.16</td>
+                <td>$210</td>
+                <td>WAITING</td>
+                <td>WATCH (75%)</td>
+                <td>WATCH (85%)</td>
+                <td><span class="decision-badge none">NONE</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">V</td>
+                <td>$333.84</td>
+                <td>$310</td>
+                <td>WAITING</td>
+                <td>HOLD (80%)</td>
+                <td>WATCH (90%)</td>
+                <td><span class="decision-badge none">NONE</span></td>
+            </tr>
+        </table>
+        <p class="text-muted">Pink rows = price below target (methodology fix applies)</p>
+
+        <!-- TYL Analysis -->
+        <h2>TYL (Tyler Technologies) — ELIGIBLE TO BUY</h2>
+        <p><strong>Status:</strong> Not owned. Price $362.88 is 9.3% below $400 START target. Sitting 0.1% above 52-week low.</p>
+
+        <div style="background: #f7fafc; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+            
+            <div style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #2c5282; background: white;">
+                <strong>The Auditor</strong><br>
+                <span class="decision-badge none">WATCH</span> <span class="text-muted">(75% confidence)</span><br><br>
+                <strong>Catalyst:</strong> Continuing selloff / momentum weakness; printing new lows. Government IT budget fears for FY2026.<br>
+                <strong>Valuation:</strong> T: 50.4 / F: 28.9. 5-year avg ~55x trailing, so current is slightly below historical but still expensive vs broader tech.<br>
+                <strong>Risk Type:</strong> Execution + gov budget cycle.<br>
+                <strong>Bear Case:</strong> Cloud migration costs and government budget cuts could stall the double-digit growth required to justify multiple.<br>
+                <strong>Bull Rebuttal:</strong> Mission-critical gov software tends to be sticky; 98% retention rate makes it "essential" SaaS.<br>
+                <strong>Verdict:</strong> Valuation looks de-risked vs its own history, but wait for methodology fix to be tested before trusting signals.
+            </div>
+
+            <div style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #ed8936; background: white;">
+                <strong>The Narrator</strong><br>
+                <span class="decision-badge none">WATCH</span> <span class="text-muted">(75% confidence)</span><br><br>
+                <strong>Narrative:</strong> Valuation compression in high-multiple software combined with fears of tightening local government budgets.<br>
+                <strong>Sentiment:</strong> Still searching for a floor. Public sector digital transformation is a multi-decade tailwind, but sentiment isn't there yet.<br>
+                <strong>Checkpoints:</strong> SaaS revenue growth >15%, public sector RFP volume, operating margin expansion.<br>
+                <strong>Verdict:</strong> Price nearing 52-week low, but sentiment still searching for a floor.
+            </div>
+
+            <div style="padding: 1rem; border-left: 4px solid #38a169; background: white;">
+                <strong>The Arbiter (Synthesis)</strong><br>
+                <span class="decision-badge none">NONE</span><br><br>
+                <strong>Agreement:</strong> Unanimous WATCH. Both analysts see attractive valuation vs TYL's own history but want confirmation before acting.<br>
+                <strong>Resolution:</strong> We just fixed the methodology bug. Let's not immediately deploy capital through the new logic until we've validated it works as intended. TYL is the poster child for "eligible to buy" under the new rules—use it as a test case.<br>
+                <strong>Action:</strong> No order today. Monitor for stabilization above 50-day MA ($447.71) or another 52-week low test.<br>
+                <strong>Upgrade Trigger:</strong> Price stabilizes; cloud bookings growth confirmed >10%.<br>
+                <strong>Downgrade Trigger:</strong> Government budget cuts materialize; bookings growth <10%.
+            </div>
+        </div>
+
+        <!-- ROP Analysis -->
+        <h2>ROP (Roper Technologies) — ELIGIBLE TO ADD</h2>
+        <p><strong>Status:</strong> Own 20 shares @ $400. Current $372.61 is below START target but above $380 ADD target. In the "hold zone" by our new logic.</p>
+
+        <div style="background: #f7fafc; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+            
+            <div style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #2c5282; background: white;">
+                <strong>The Auditor</strong><br>
+                <span class="decision-badge none">HOLD</span> <span class="text-muted">(80% confidence)</span><br><br>
+                <strong>Catalyst:</strong> No single-news move; investor rotation out of serial acquirers as cost of capital for M&A stays elevated.<br>
+                <strong>Valuation:</strong> T: 26.2 / F: 16.0 vs 5-year avg ~31.5. Trading below its recent normal.<br>
+                <strong>Risk Type:</strong> Execution (integration) + organic growth duration.<br>
+                <strong>Bear Case:</strong> Multiple compresses if organic growth stays <4% and deals don't compound.<br>
+                <strong>Bull Rebuttal:</strong> Portfolio quality + cashflow + disciplined M&A can restore "compounder premium."<br>
+                <strong>Verdict:</strong> Already owned; valuation less stretched than average. Do NOT add until $380 hit and methodology confirmed.
+            </div>
+
+            <div style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #ed8936; background: white;">
+                <strong>The Narrator</strong><br>
+                <span class="decision-badge none">HOLD</span> <span class="text-muted">(85% confidence)</span><br><br>
+                <strong>Narrative:</strong> Market expects significant earnings growth (F: 16.0) that hasn't been priced in yet. Decentralized model and high FCF generation allow buying quality niche software regardless of macro.<br>
+                <strong>Checkpoints:</strong> Organic growth rate, debt-to-EBITDA, FCF conversion.<br>
+                <strong>Verdict:</strong> Own at $400; wait for $380 ADD target to increase size.
+            </div>
+
+            <div style="padding: 1rem; border-left: 4px solid #38a169; background: white;">
+                <strong>The Arbiter (Synthesis)</strong><br>
+                <span class="decision-badge none">NONE</span><br><br>
+                <strong>Agreement:</strong> Unanimous HOLD. Position already established; wait for ADD target.<br>
+                <strong>Resolution:</strong> Price $372.61 is below START ($400) but above ADD ($380). Under new logic, this is "HOLD ZONE"—we own it, thesis intact, but wait for the ADD level before deploying more capital.<br>
+                <strong>Action:</strong> No order today. ADD target remains $380.<br>
+                <strong>Upgrade Trigger:</strong> Organic growth ≥4%; Q1 confirms stabilization.<br>
+                <strong>Downgrade Trigger:</strong> Organic growth <4% for second consecutive quarter (exit criteria).
+            </div>
+        </div>
+
+        <!-- MSFT Analysis -->
+        <h2>MSFT (Microsoft) — ELIGIBLE TO ADD</h2>
+        <p><strong>Status:</strong> Own 10 shares @ $450. Current $423.37 is below START target but above $445 ADD target.</p>
+
+        <div style="background: #f7fafc; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; margin: 1.5rem 0;">
+            
+            <div style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #2c5282; background: white;">
+                <strong>The Auditor</strong><br>
+                <span class="decision-badge none">HOLD</span> <span class="text-muted">(85% confidence)</span><br><br>
+                <strong>Catalyst:</strong> Post-earnings "show-me" period for AI monetization. CapEx spending levels (up 66% YoY) alarming some institutional holders. (<a href="https://www.fool.com/investing/2026/02/02/shares-down-10-earnings-call-microsoft-stock/">Motley Fool</a>)<br>
+                <strong>Valuation:</strong> T: 26.5 / F: 22.4 vs 5-year avg ~32-33. Current is below recent norm.<br>
+                <strong>Risk Type:</strong> Tech narrative + execution (AI monetization vs capex).<br>
+                <strong>Bear Case:</strong> Market resets "Mag7" AI winners to lower multiples if capex eats margins longer than expected.<br>
+                <strong>Bull Rebuttal:</strong> Azure + enterprise lock-in + durable cashflow; capex is investment that extends moat.<br>
+                <strong>Verdict:</strong> Thesis intact; valuation less demanding. Biggest issue is rule mechanics (ADD $445 above current).
+            </div>
+
+            <div style="margin-bottom: 1.5rem; padding: 1rem; border-left: 4px solid #ed8936; background: white;">
+                <strong>The Narrator</strong><br>
+                <span class="decision-badge none">HOLD</span> <span class="text-muted">(90% confidence)</span><br><br>
+                <strong>Narrative:</strong> Post-earnings "show-me" period for AI monetization. Copilot adoption and Azure's lead in AI infrastructure provide multi-year growth runway that justifies capex.<br>
+                <strong>Checkpoints:</strong> Azure growth %, AI revenue contribution, capex efficiency.<br>
+                <strong>Verdict:</strong> Owned at $450; currently $423.37. Wait for $445 ADD target or stabilization.
+            </div>
+
+            <div style="padding: 1rem; border-left: 4px solid #38a169; background: white;">
+                <strong>The Arbiter (Synthesis)</strong><br>
+                <span class="decision-badge none">NONE</span><br><br>
+                <strong>Agreement:</strong> Unanimous HOLD with high confidence (85-90%). Thesis intact, valuation attractive vs history.<br>
+                <strong>Resolution:</strong> Price $423.37 is below START ($450) but above ADD ($445). Under new logic, this is "HOLD ZONE." We own 10 shares; wait for ADD level.<br>
+                <strong>Clarification:</strong> The old prompt said "GTC at $450" when price was $423—that's the bug. New logic correctly identifies this as "wait for $445 ADD."<br>
+                <strong>Action:</strong> No order today.<br>
+                <strong>Upgrade Trigger:</strong> Azure re-accelerates; AI monetization proof points emerge.<br>
+                <strong>Downgrade Trigger:</strong> Azure growth <15% for 3+ quarters.
+            </div>
+        </div>
+
+        <!-- Brief Section for WAITING stocks -->
+        <h2>WAITING Stocks (Price Above Target)</h2>
+        <p>These are correctly identified as "WAITING" under the new logic—GTC orders at target are appropriate.</p>
+
+        <div style="background: #f7fafc; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+            <p><strong>FICO ($1,450.91 → $1,400 target):</strong> Auditor WATCH 70%, Narrator WATCH 80%. Still expensive on "quality compounder" terms; wait for START level. <strong>Final: NONE</strong></p>
+            <p><strong>WM ($223.16 → $210 target):</strong> Auditor WATCH 75%, Narrator WATCH 85%. Defensive premium intact; Stericycle integration ongoing. <strong>Final: NONE</strong></p>
+            <p><strong>V ($333.84 → $310 target):</strong> Auditor HOLD 80%, Narrator WATCH 90%. GTC at $310.18 already working. <strong>Final: NONE</strong></p>
+        </div>
+
+        <!-- WATCH List -->
+        <h2>WATCH List (Far From Target)</h2>
+        <div style="background: #f7fafc; border: 1px solid #e2e8f0; padding: 1.5rem; border-radius: 8px; margin: 1rem 0;">
+            <p><strong>CPRT ($39.68 → $35 target):</strong> Near 52-week low but 13.4% above target. GTC at $34.97 working. <strong>Final: NONE</strong></p>
+            <p><strong>RSG ($215.73 → $190 target):</strong> Near 52-week low but 13.5% above target. <strong>Final: NONE</strong></p>
+            <p><strong>IDXX ($639.60 → $550 target):</strong> High P/E (50.8) warrants skepticism. Vet visit weakness narrative. <strong>Final: NONE</strong></p>
+        </div>
+
+        <!-- Final Decisions -->
+        <h2>Final Decisions</h2>
+        <table>
+            <tr>
+                <th>Ticker</th>
+                <th>Auditor</th>
+                <th>Narrator</th>
+                <th>Final</th>
+                <th>Action</th>
+            </tr>
+            <tr>
+                <td class="ticker">TYL</td>
+                <td>WATCH (75%)</td>
+                <td>WATCH (75%)</td>
+                <td><strong>NONE</strong></td>
+                <td>Monitor; test case for new logic</td>
+            </tr>
+            <tr>
+                <td class="ticker">ROP</td>
+                <td>HOLD (80%)</td>
+                <td>HOLD (85%)</td>
+                <td><strong>NONE</strong></td>
+                <td>Own 20 shares; wait for $380 ADD</td>
+            </tr>
+            <tr>
+                <td class="ticker">MSFT</td>
+                <td>HOLD (85%)</td>
+                <td>HOLD (90%)</td>
+                <td><strong>NONE</strong></td>
+                <td>Own 10 shares; wait for $445 ADD</td>
+            </tr>
+            <tr>
+                <td class="ticker">FICO</td>
+                <td>WATCH (70%)</td>
+                <td>WATCH (80%)</td>
+                <td><strong>NONE</strong></td>
+                <td>GTC $1,400 (to be set)</td>
+            </tr>
+            <tr>
+                <td class="ticker">WM</td>
+                <td>WATCH (75%)</td>
+                <td>WATCH (85%)</td>
+                <td><strong>NONE</strong></td>
+                <td>GTC $210 (to be set)</td>
+            </tr>
+            <tr>
+                <td class="ticker">V</td>
+                <td>HOLD (80%)</td>
+                <td>WATCH (90%)</td>
+                <td><strong>NONE</strong></td>
+                <td>GTC $310.18 working</td>
+            </tr>
+            <tr>
+                <td class="ticker">CPRT</td>
+                <td>WATCH (70%)</td>
+                <td>WATCH (70%)</td>
+                <td><strong>NONE</strong></td>
+                <td>GTC $34.97 working</td>
+            </tr>
+            <tr>
+                <td class="ticker">RSG</td>
+                <td>IGNORE (65%)</td>
+                <td>WATCH (80%)</td>
+                <td><strong>NONE</strong></td>
+                <td>Far from target</td>
+            </tr>
+            <tr>
+                <td class="ticker">IDXX</td>
+                <td>WATCH (75%)</td>
+                <td>WATCH (65%)</td>
+                <td><strong>NONE</strong></td>
+                <td>High P/E; far from target</td>
+            </tr>
+        </table>
+
+        <!-- Lesson Box -->
+        <div class="lesson-box">
+            <h3 style="margin-top: 0; color: #c05621;">📝 Lesson Logged</h3>
+            <p><strong>February 2, 2026 — The Auditor Catches a Bug:</strong></p>
+            <p><em>"The Auditor (ChatGPT) flagged a critical methodology drift: our prompt generator was saying 'GTC at $450' when MSFT was trading at $423. A buy limit above current price is immediately marketable—not a waiting order. This is exactly why we have three analysts. The system is designed to catch its own errors. Fix deployed in v1.1."</em></p>
+            <p style="margin-top: 1rem;"><strong>The Meta-Lesson:</strong> Transparency isn't just about publishing results. It's about publishing process—including when the process breaks. The Auditor did its job.</p>
+        </div>
+
+        <!-- What We're Watching -->
+        <h2>What We're Watching</h2>
+        <ul style="margin: 1rem 0; padding-left: 1.5rem;">
+            <li><strong>Methodology v1.1:</strong> First full week with the fixed Track 3 logic. Monitor for edge cases.</li>
+            <li><strong>TYL:</strong> Test case for "ELIGIBLE TO BUY" scenario. Will we act if it stabilizes?</li>
+            <li><strong>ROP Q1 (~April):</strong> Organic growth checkpoint—exit if <4%.</li>
+            <li><strong>MSFT:</strong> Azure growth and AI monetization proof points.</li>
+            <li><strong>GTCs to set:</strong> FICO $1,400, WM $210 (currently working: V, CPRT, CB, CVX, PWR).</li>
+        </ul>
+
+        <p>Next roundtable convenes tomorrow.</p>
+
+        <!-- Navigation -->
+        <div style="display: flex; justify-content: space-between; margin-top: 2rem; padding-top: 1rem; border-top: 1px solid #e2e8f0;">
+            <a href="2026_01_30_roundtable.html">← Previous: January 30</a>
+            <span class="text-muted">Next: February 3 →</span>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors. Past performance does not guarantee future results. We may hold positions in the stocks discussed. You are responsible for your own decisions.
+        </div>
+        <p>© 2026 Tantrums & Targets</p>
+    </footer>
+</body>
+</html>
