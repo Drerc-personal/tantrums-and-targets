@@ -3,13 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Scoreboard — Tantrums & Targets</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Scoreboard  -  Tantrums & Targets</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <header>
         <div class="container">
-            <a href="index.html" class="logo"><span class="tantrum">Tantrums</span> & <span class="target">Targets</span></a>
+            <a href="index.html" class="logo">
+                <span class="tantrum">Tantrums</span> & <span class="target">Targets</span>
+            </a>
             <nav>
                 <a href="index.html">Home</a>
                 <a href="scoreboard.html">Scoreboard</a>
@@ -21,192 +24,465 @@
 
     <main class="container">
         <h1>The Scoreboard</h1>
-        <p class="text-muted">The honest numbers. Updated daily after market close.</p>
+        <p class="text-muted">The honest numbers. Last updated: 2026-02-06</p>
 
-        <!-- Performance Summary -->
         <div class="scoreboard-summary">
             <div class="score-card">
                 <div class="label">Portfolio Value</div>
-                <div class="value">$40,000</div>
+                <div class="value">$38,251</div>
             </div>
             <div class="score-card">
-                <div class="label">VOO (Benchmark)</div>
-                <div class="value">$636.09</div>
+                <div class="label">VOO Return</div>
+                <div class="value">-0.1%</div>
             </div>
             <div class="score-card">
-                <div class="label">Alpha</div>
-                <div class="value">0.0%</div>
+                <div class="label">Portfolio Return</div>
+                <div class="value">-4.4%</div>
+            </div>
+            <div class="score-card">
+                <div class="label">Alpha vs VOO</div>
+                <div class="value ">-4.2%</div>
             </div>
         </div>
 
-        <!-- Key Stats -->
+        <h2>Performance Chart</h2>
+        <div style="background: #f7fafc; padding: 1rem; border-radius: 8px; margin-bottom: 2rem;">
+            <canvas id="performanceChart" height="120"></canvas>
+        </div>
+
         <h2>Key Statistics</h2>
         <table>
-            <tr>
-                <th>Metric</th>
-                <th>Value</th>
-            </tr>
-            <tr>
-                <td>Start Date</td>
-                <td>January 17, 2026</td>
-            </tr>
-            <tr>
-                <td>Starting Capital</td>
-                <td>$40,000.00</td>
-            </tr>
-            <tr>
-                <td>Current Cash</td>
-                <td>$40,000.00</td>
-            </tr>
-            <tr>
-                <td>Invested</td>
-                <td>$0.00</td>
-            </tr>
-            <tr>
-                <td>Positions Held</td>
-                <td>0 of 25</td>
-            </tr>
-            <tr>
-                <td>Total Trades</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Track 1 (DCA) Fills</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Track 2 (Tantrum) Fills</td>
-                <td>0</td>
-            </tr>
-            <tr>
-                <td>Track 3 (Target) Fills</td>
-                <td>0</td>
-            </tr>
+            <tr><th>Metric</th><th>Value</th></tr>
+            <tr><td>Start Date</td><td>January 17, 2026</td></tr>
+            <tr><td>Starting Capital</td><td>$40,000</td></tr>
+            <tr><td>Current Cash</td><td>$0.00</td></tr>
+            <tr><td>Invested</td><td>$25,904.03</td></tr>
+            <tr><td>Market Value</td><td>$24,155.47</td></tr>
+            <tr><td>Positions Held</td><td>7 of 25</td></tr>
+            <tr><td>Pending Orders</td><td>6</td></tr>
         </table>
 
-        <!-- Current Positions -->
         <h2>Current Positions</h2>
-        <p class="text-muted">No positions yet. The first roundtable convenes this week.</p>
-        
-        <!-- Placeholder for future positions table -->
-        <!--
         <table>
             <tr>
                 <th>Ticker</th>
                 <th>Shares</th>
                 <th>Avg Cost</th>
                 <th>Current</th>
-                <th>Gain/Loss</th>
+                <th>Value</th>
+                <th>P&L</th>
             </tr>
+            
             <tr>
                 <td class="ticker">MSFT</td>
+                <td>12</td>
+                <td>$447.25</td>
+                <td>$401.14</td>
+                <td>$4,813.68</td>
+                <td class="negative">-10.3%</td>
+            </tr>
+            <tr>
+                <td class="ticker">MCO</td>
                 <td>5</td>
                 <td>$450.00</td>
-                <td>$459.86</td>
-                <td class="positive">+2.2%</td>
+                <td>$452.49</td>
+                <td>$2,262.45</td>
+                <td class="positive">+0.6%</td>
+            </tr>
+            <tr>
+                <td class="ticker">WM</td>
+                <td>10</td>
+                <td>$218.06</td>
+                <td>$226.79</td>
+                <td>$2,267.90</td>
+                <td class="positive">+4.0%</td>
+            </tr>
+            <tr>
+                <td class="ticker">TYL</td>
+                <td>4</td>
+                <td>$412.94</td>
+                <td>$348.35</td>
+                <td>$1,393.40</td>
+                <td class="negative">-15.6%</td>
+            </tr>
+            <tr>
+                <td class="ticker">FICO</td>
+                <td>1</td>
+                <td>$1623.97</td>
+                <td>$1391.00</td>
+                <td>$1,391.00</td>
+                <td class="negative">-14.3%</td>
+            </tr>
+            <tr>
+                <td class="ticker">VRSN</td>
+                <td>10</td>
+                <td>$220.00</td>
+                <td>$224.17</td>
+                <td>$2,241.70</td>
+                <td class="positive">+1.9%</td>
+            </tr>
+            <tr>
+                <td class="ticker">ROP</td>
+                <td>27</td>
+                <td>$393.73</td>
+                <td>$362.42</td>
+                <td>$9,785.34</td>
+                <td class="negative">-8.0%</td>
             </tr>
         </table>
-        -->
 
-        <!-- Watchlist Distance -->
-        <h2>Distance to Targets</h2>
-        <p>Current prices vs our tri-anchor target prices. Stocks within 10% are highlighted.</p>
-        
+        <h2>Pending GTC Orders</h2>
+        <table>
+            <tr>
+                <th>Ticker</th>
+                <th>Limit</th>
+                <th>Shares</th>
+                <th>Type</th>
+            </tr>
+            
+            <tr>
+                <td class="ticker">V</td>
+                <td>$310.18</td>
+                <td>3</td>
+                <td>GTC</td>
+            </tr>
+            <tr>
+                <td class="ticker">PWR</td>
+                <td>$350.35</td>
+                <td>5</td>
+                <td>GTC</td>
+            </tr>
+            <tr>
+                <td class="ticker">CB</td>
+                <td>$280.00</td>
+                <td>12</td>
+                <td>GTC</td>
+            </tr>
+            <tr>
+                <td class="ticker">CVX</td>
+                <td>$149.47</td>
+                <td>15</td>
+                <td>GTC</td>
+            </tr>
+            <tr>
+                <td class="ticker">CPRT</td>
+                <td>$34.97</td>
+                <td>60</td>
+                <td>GTC</td>
+            </tr>
+            <tr>
+                <td class="ticker">JKHY</td>
+                <td>$160.00</td>
+                <td>10</td>
+                <td>GTC</td>
+            </tr>
+        </table>
+
+        <h2>Watchlist -- Distance to Target</h2>
+        <p class="text-muted">All 25 stocks sorted by proximity to entry target. Green = within 10%. Yellow = 10-20%.</p>
         <table>
             <tr>
                 <th>Ticker</th>
                 <th>Company</th>
-                <th>Price</th>
+                <th>Current</th>
                 <th>Target</th>
+                <th>Add Target</th>
                 <th>Distance</th>
+                <th>Status</th>
             </tr>
-            <tr style="background: #f0fff4;">
-                <td class="ticker">MSFT</td>
-                <td>Microsoft</td>
-                <td>$459.86</td>
-                <td>$450.00</td>
-                <td>+2.2%</td>
+            
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">MCO</td>
+                <td>Moody's</td>
+                <td>$452.49</td>
+                <td>$450</td>
+                <td>$430</td>
+                <td class="">+0.6%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span></td>
             </tr>
-            <tr style="background: #f0fff4;">
-                <td class="ticker">ROP</td>
-                <td>Roper Technologies</td>
-                <td>$416.14</td>
-                <td>$400.00</td>
-                <td>+4.0%</td>
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">FICO</td>
+                <td>Fair Isaac</td>
+                <td>$1,391.00</td>
+                <td>$1,400</td>
+                <td>$1,300</td>
+                <td class="positive">-0.6%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span> <span style="background:#e53e3e;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">BELOW TARGET</span></td>
             </tr>
-            <tr style="background: #f0fff4;">
-                <td class="ticker">WM</td>
-                <td>Waste Management</td>
-                <td>$221.23</td>
-                <td>$210.00</td>
-                <td>+5.3%</td>
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">VRSN</td>
+                <td>Verisign</td>
+                <td>$224.17</td>
+                <td>$220</td>
+                <td>$200</td>
+                <td class="">+1.9%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span></td>
             </tr>
-            <tr style="background: #f0fff4;">
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">NVO</td>
+                <td>Novo Nordisk</td>
+                <td>$47.64</td>
+                <td>$50</td>
+                <td>$45</td>
+                <td class="positive">-4.7%</td>
+                <td><span style="background:#e53e3e;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">BELOW TARGET</span></td>
+            </tr>
+            <tr style="background-color: #f0fff4;">
                 <td class="ticker">V</td>
                 <td>Visa</td>
-                <td>$328.30</td>
-                <td>$310.00</td>
-                <td>+5.9%</td>
+                <td>$331.58</td>
+                <td>$310</td>
+                <td>$300</td>
+                <td class="">+7.0%</td>
+                <td><span style="background:#ed8936;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">GTC</span></td>
             </tr>
-            <tr style="background: #f0fff4;">
-                <td class="ticker">CB</td>
-                <td>Chubb</td>
-                <td>$300.77</td>
-                <td>$280.00</td>
-                <td>+7.4%</td>
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">WM</td>
+                <td>Waste Management</td>
+                <td>$226.79</td>
+                <td>$210</td>
+                <td>$200</td>
+                <td class="">+8.0%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span></td>
             </tr>
-            <tr>
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">JKHY</td>
+                <td>Jack Henry</td>
+                <td>$173.36</td>
+                <td>$160</td>
+                <td>$150</td>
+                <td class="">+8.4%</td>
+                <td><span style="background:#ed8936;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">GTC</span></td>
+            </tr>
+            <tr style="background-color: #f0fff4;">
+                <td class="ticker">ROP</td>
+                <td>Roper Technologies</td>
+                <td>$362.42</td>
+                <td>$400</td>
+                <td>$380</td>
+                <td class="positive">-9.4%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span> <span style="background:#e53e3e;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">BELOW TARGET</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">MSFT</td>
+                <td>Microsoft</td>
+                <td>$401.14</td>
+                <td>$450</td>
+                <td>$445</td>
+                <td class="">-10.9%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span> <span style="background:#e53e3e;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">BELOW TARGET</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
                 <td class="ticker">VOO</td>
                 <td>S&P 500 Index</td>
-                <td>$636.09</td>
-                <td>$570.00</td>
-                <td>+11.6%</td>
+                <td>$635.24</td>
+                <td>$570</td>
+                <td>$540</td>
+                <td class="">+11.4%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">TYL</td>
+                <td>Tyler Technologies</td>
+                <td>$348.35</td>
+                <td>$400</td>
+                <td>$380</td>
+                <td class="">-12.9%</td>
+                <td><span style="background:#38a169;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">OWNED</span> <span style="background:#e53e3e;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">BELOW TARGET</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">GE</td>
+                <td>GE Aerospace</td>
+                <td>$321.00</td>
+                <td>$280</td>
+                <td>$270</td>
+                <td class="">+14.6%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">CPRT</td>
+                <td>Copart</td>
+                <td>$40.36</td>
+                <td>$35</td>
+                <td>$32</td>
+                <td class="">+15.3%</td>
+                <td><span style="background:#ed8936;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">GTC</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">RSG</td>
+                <td>Republic Services</td>
+                <td>$219.94</td>
+                <td>$190</td>
+                <td>$180</td>
+                <td class="">+15.8%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">IDXX</td>
+                <td>IDEXX Labs</td>
+                <td>$644.61</td>
+                <td>$550</td>
+                <td>$500</td>
+                <td class="">+17.2%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">BAC</td>
+                <td>Bank of America</td>
+                <td>$56.53</td>
+                <td>$48</td>
+                <td>$45</td>
+                <td class="">+17.8%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr style="background-color: #fffff0;">
+                <td class="ticker">CB</td>
+                <td>Chubb</td>
+                <td>$330.97</td>
+                <td>$280</td>
+                <td>$270</td>
+                <td class="">+18.2%</td>
+                <td><span style="background:#ed8936;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">GTC</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">CVX</td>
+                <td>Chevron</td>
+                <td>$180.86</td>
+                <td>$150</td>
+                <td>$145</td>
+                <td class="">+20.6%</td>
+                <td><span style="background:#ed8936;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">GTC</span></td>
             </tr>
             <tr>
                 <td class="ticker">AAPL</td>
                 <td>Apple</td>
-                <td>$255.53</td>
-                <td>$230.00</td>
-                <td>+11.1%</td>
+                <td>$278.12</td>
+                <td>$230</td>
+                <td>$220</td>
+                <td class="">+20.9%</td>
+                <td><span class="text-muted">Watching</span></td>
             </tr>
             <tr>
                 <td class="ticker">NVDA</td>
                 <td>NVIDIA</td>
-                <td>$186.23</td>
-                <td>$150.00</td>
-                <td>+24.2%</td>
+                <td>$185.41</td>
+                <td>$150</td>
+                <td>$140</td>
+                <td class="">+23.6%</td>
+                <td><span class="text-muted">Watching</span></td>
             </tr>
             <tr>
-                <td class="ticker">BAC</td>
-                <td>Bank of America</td>
-                <td>$52.97</td>
-                <td>$48.00</td>
-                <td>+10.4%</td>
+                <td class="ticker">JNJ</td>
+                <td>Johnson & Johnson</td>
+                <td>$239.99</td>
+                <td>$180</td>
+                <td>$170</td>
+                <td class="">+33.3%</td>
+                <td><span class="text-muted">Watching</span></td>
             </tr>
             <tr>
-                <td class="ticker">MCO</td>
-                <td>Moody's</td>
-                <td>$538.92</td>
-                <td>$450.00</td>
-                <td>+19.8%</td>
+                <td class="ticker">GEV</td>
+                <td>GE Vernova</td>
+                <td>$779.35</td>
+                <td>$550</td>
+                <td>$500</td>
+                <td class="">+41.7%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">ODFL</td>
+                <td>Old Dominion Freight</td>
+                <td>$202.47</td>
+                <td>$140</td>
+                <td>$125</td>
+                <td class="">+44.6%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">PWR</td>
+                <td>Quanta Services</td>
+                <td>$508.11</td>
+                <td>$350</td>
+                <td>$320</td>
+                <td class="">+45.2%</td>
+                <td><span style="background:#ed8936;color:#fff;padding:1px 6px;border-radius:3px;font-size:0.75em;">GTC</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">ASML</td>
+                <td>ASML</td>
+                <td>$1,413.01</td>
+                <td>$900</td>
+                <td>$850</td>
+                <td class="">+57.0%</td>
+                <td><span class="text-muted">Watching</span></td>
+            </tr>
+            <tr>
+                <td class="ticker">FIX_APPLIED: Applied 2026-02-07 22:12:16</td>
+                <td>None</td>
+                <td>$0.00</td>
+                <td>$0</td>
+                <td>$0</td>
+                <td class="">N/A</td>
+                <td><span class="text-muted">Watching</span></td>
             </tr>
         </table>
-        <p class="text-muted" style="margin-top: 1rem;">Showing top 10. Green rows are within 10% of target (Track 3 candidates).</p>
-
-        <!-- Performance Chart Placeholder -->
-        <h2>Performance Over Time</h2>
-        <div style="background: #f7fafc; border: 1px dashed #e2e8f0; padding: 3rem; text-align: center; border-radius: 8px;">
-            <p class="text-muted">Chart will appear once we have trading data.</p>
-            <p class="text-muted">Portfolio vs VOO — the honest comparison.</p>
-        </div>
 
     </main>
 
     <footer>
         <div class="disclaimer">
-            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors. Past performance does not guarantee future results. We may hold positions in the stocks discussed. You are responsible for your own decisions.
+            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors. 
+            Past performance does not guarantee future results. We may hold positions in the stocks discussed. 
+            You are responsible for your own decisions.
         </div>
-        <p>© 2026 Tantrums & Targets</p>
+        <p>(c) 2026 Tantrums & Targets</p>
     </footer>
+
+    <script>
+        const chartData = [{"date": "2026-01-17", "voo": 0, "portfolio": 0}, {"date": "2026-01-21", "voo": -0.91, "portfolio": 11.34}, {"date": "2026-01-23", "voo": -0.36, "portfolio": 12.03}, {"date": "2026-01-26", "voo": 0.16, "portfolio": 12.19}, {"date": "2026-01-27", "voo": 0.57, "portfolio": 10.48}, {"date": "2026-01-29", "voo": 0.34, "portfolio": 9.09}, {"date": "2026-01-30", "voo": 0.02, "portfolio": 9.32}, {"date": "2026-02-02", "voo": 0.56, "portfolio": 9.21}, {"date": "2026-02-06", "voo": -0.13, "portfolio": -4.37}];
+        
+        const ctx = document.getElementById('performanceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: chartData.map(d => d.date),
+                datasets: [
+                    {
+                        label: 'Portfolio',
+                        data: chartData.map(d => d.portfolio),
+                        borderColor: '#38a169',
+                        backgroundColor: 'rgba(56, 161, 105, 0.1)',
+                        fill: true,
+                        tension: 0.3
+                    },
+                    {
+                        label: 'VOO (S&P 500)',
+                        data: chartData.map(d => d.voo),
+                        borderColor: '#718096',
+                        backgroundColor: 'transparent',
+                        borderDash: [5, 5],
+                        tension: 0.3
+                    }
+                ]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'top',
+                    }
+                },
+                scales: {
+                    y: {
+                        ticks: {
+                            callback: function(value) {
+                                return value + '%';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
 </body>
 </html>
