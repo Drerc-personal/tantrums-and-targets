@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FICO Fundamental Analysis - Tantrums &amp; Targets</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Fundamental analysis page styles */
+        .verdict-box {
+            background: #ebf8ff;
+            border: 2px solid #3182ce;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .verdict-box h3 {
+            color: #2c5282;
+            margin-top: 0;
+        }
+        .warning-box {
+            background: #fff5f5;
+            border: 2px solid #fc8181;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .warning-box h3 {
+            color: #c53030;
+            margin-top: 0;
+        }
+        .lesson-box {
+            background: #f0fff4;
+            border: 2px solid #38a169;
+            border-radius: 8px;
+            padding: 1.25rem;
+            margin: 1.5rem 0;
+        }
+        .lesson-box h3 {
+            color: #276749;
+            margin-top: 0;
+        }
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+        }
+        .meta-bar .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-bar .meta-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .meta-bar .meta-value {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .meta-bar .meta-value.weakening { color: #d69e2e; }
+        .meta-bar .meta-value.hold { color: #3182ce; }
+        .meta-bar .meta-value.negative { color: #e53e3e; }
+        main.container h2 {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        main.container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        main.container th {
+            background: #edf2f7;
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+        }
+        main.container td {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        main.container blockquote {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="tantrum">Tantrums</span> &amp; <span class="target">Targets</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="scoreboard.html">Scoreboard</a>
+                <a href="roundtable.html">Roundtable</a>
+                <a href="fundamentals.html">Fundamentals</a>
+                <a href="methodology.html">Methodology</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <p class="text-muted"><a href="fundamentals.html">&larr; Back to Fundamental Analysis Archive</a></p>
+
+        <h1>FICO &mdash; Fair Isaac Corporation</h1>
+        <p class="text-muted">Fundamental Analysis &bull; The Arbiter&rsquo;s Synthesis &bull; February 24, 2026</p>
+
+        <div class="meta-bar">
+            <div class="meta-item">
+                <span class="meta-label">Ticker</span>
+                <span class="meta-value">FICO</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Price (as-of)</span>
+                <span class="meta-value">$1,283</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Verdict</span>
+                <span class="meta-value hold">KEEP (WATCH)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Position</span>
+                <span class="meta-value">HOLD 1 share</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Thesis</span>
+                <span class="meta-value weakening">WEAKENING</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Risk Type</span>
+                <span class="meta-value negative">STRUCTURAL</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">New START</span>
+                <span class="meta-value">$950</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">New ADD</span>
+                <span class="meta-value">$750</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Confidence</span>
+                <span class="meta-value">72%</span>
+            </div>
+        </div>
+
+        <h1>TANTRUMS &amp; TARGETS — FUNDAMENTAL ANALYSIS</h1>
+<h2>FAIR ISAAC CORPORATION (NYSE: FICO)</h2>
+<h3>THE ARBITER'S ANALYSIS — February 24, 2026</h3>
+<p><strong>As-of date:</strong> February 24, 2026 (intraday). All prices and ratios use <strong>$1,283</strong> unless otherwise noted.
+52-week range: $1,268 – $2,218. Source: <a href="https://www.tradingview.com/symbols/NYSE-FICO/">TradingView</a>, <a href="https://www.macrotrends.net/stocks/charts/FICO/fair-isaac/stock-price-history">MacroTrends</a></p>
+<hr />
+<p><strong>Central question:</strong> <em>Does this company deserve a spot on a concentrated watchlist of the best businesses in the world?</em></p>
+<p><strong>Short answer:</strong> <strong>KEEP (WATCH).</strong> Still exceptional economics, but moat is narrowing and valuation is not cheap — hold small, don't add.</p>
+<hr />
+<h2>SECTION 1: BUSINESS IDENTITY</h2>
+<p><strong>Core business:</strong> FICO provides predictive analytics software and the dominant consumer credit scoring model used by virtually all U.S. lenders for underwriting decisions.</p>
+<p><strong>How it makes money (FY2025 full year, ended Sep 30, 2025 — $1.991B total revenue):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>Revenue</th>
+<th>% of Total</th>
+<th>YoY Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Scores (B2B + B2C)</td>
+<td>~$1.169B</td>
+<td>~59%</td>
+<td>+27%</td>
+</tr>
+<tr>
+<td>Software (Platform + Non-platform)</td>
+<td>~$822M</td>
+<td>~41%</td>
+<td>+5%</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://investors.fico.com/static-files/4dd43bd8-b07f-472c-9e53-5cb224ec9acd">FICO FY2025 Annual Report (investors.fico.com)</a>, <a href="https://finance.yahoo.com/news/fico-announces-earnings-6-61-211500794.html">FICO Q1 2026 Press Release</a></p>
+<p>The Scores segment is the profit engine — extremely high-margin licensing revenue generated every time a lender pulls a FICO score. B2B scores (banks, mortgage lenders, card issuers) are the bulk. The Software segment sells decision management platforms, fraud detection, and analytics tools. Platform ARR is growing 33% but non-platform ARR is declining 8%.</p>
+<p><strong>Most recent quarter (Q1 FY2026, ended Dec 31, 2025):</strong> Revenue of $512M (+16% YoY). Scores revenue surged 29% to $304.5M, driven by a 36% increase in B2B revenue from higher mortgage origination pricing and volume. Software revenue grew 2% to $207.5M. Source: <a href="https://finance.yahoo.com/news/fico-announces-earnings-6-61-211500794.html">FICO Press Release via Yahoo Finance</a></p>
+<p><strong>Who the customer is:</strong> Financial institutions — banks, credit unions, mortgage lenders, credit card issuers, auto lenders, and insurers. They pay because FICO scores are embedded in regulatory and operational workflows as the default risk assessment metric. Consumers also pay via myFICO.com subscriptions.</p>
+<p><strong>Moat:</strong> Regulatory entrenchment + network effects + switching costs + brand. For decades, FICO was the <em>only</em> credit score accepted by Fannie Mae and Freddie Mac for conforming mortgage origination — a major channel in the U.S. housing finance system. Source: <a href="https://www.fhfa.gov/policy/credit-scores">FHFA</a>. The "FICO Score" brand is embedded in consumer mindshare. However, as of July 2025, FHFA broke this exclusive mandate — see Section 4.</p>
+<hr />
+<h2>SECTION 2: FINANCIAL HEALTH</h2>
+<p><strong>Revenue (3-year trend + most recent quarter):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Revenue</th>
+<th>YoY Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FY2023 (ended Sep 2023)</td>
+<td>$1.514B</td>
+<td>+9.9%</td>
+</tr>
+<tr>
+<td>FY2024 (ended Sep 2024)</td>
+<td>$1.718B</td>
+<td>+13.5%</td>
+</tr>
+<tr>
+<td>FY2025 (ended Sep 2025)</td>
+<td>$1.991B</td>
+<td>+15.9%</td>
+</tr>
+<tr>
+<td>Q1 FY2026 (ended Dec 2025)</td>
+<td>$512M</td>
+<td>+16.4%</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://investors.fico.com/static-files/4dd43bd8-b07f-472c-9e53-5cb224ec9acd">FICO FY2025 Annual Report</a>, <a href="https://finance.yahoo.com/news/fico-announces-earnings-6-61-211500794.html">FICO Q1 2026 Press Release</a></p>
+<p>Growth is accelerating, primarily driven by Scores pricing power and mortgage volume recovery.</p>
+<p><strong>Earnings (EPS trend and beat/miss history):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Quarter</th>
+<th>GAAP EPS</th>
+<th>Non-GAAP EPS</th>
+<th>vs Estimate</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q1 FY2026 (Dec 2025)</td>
+<td>$6.61</td>
+<td>$7.33</td>
+<td>Est $7.07</td>
+<td>BEAT +3.7%</td>
+</tr>
+<tr>
+<td>Q4 FY2025 (Sep 2025)</td>
+<td>—</td>
+<td>$7.74</td>
+<td>Est $7.36</td>
+<td>BEAT +5.2%</td>
+</tr>
+<tr>
+<td>Q3 FY2025 (Jun 2025)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>BEAT</td>
+</tr>
+<tr>
+<td>Q2 FY2025 (Mar 2025)</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td>BEAT</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.investing.com/news/transcripts/earnings-call-transcript-fico-surpasses-q1-2026-earnings-expectations-stock-dips-93CH-4481144">Investing.com Q1 2026 transcript</a>, <a href="https://www.fool.com/earnings/call-transcripts/2026/01/28/fair-isaac-fico-q1-2026-earnings-call-transcript/">Motley Fool Q1 2026 transcript</a></p>
+<p>FICO has beaten EPS estimates in its last 4+ consecutive quarters. The business is executing at the financial level.</p>
+<p><strong>FY2026 guidance:</strong> Revenue $2.35B, GAAP EPS $33.47, Non-GAAP EPS $38.17. This guidance <em>missed</em> consensus ($2.441B revenue, $40.70 adj EPS). Management reiterated rather than raised after the Q1 beat — a cautious signal. Source: <a href="https://www.investing.com/news/earnings/fico-shares-fall-as-revenue-guidance-misses-estimates-93CH-4471382">Investing.com</a></p>
+<p><strong>Margins:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gross margin</td>
+<td>~82.9%</td>
+<td><a href="https://finance.yahoo.com/quote/FICO/key-statistics/">Yahoo Finance</a></td>
+</tr>
+<tr>
+<td>Operating margin (Non-GAAP Q1)</td>
+<td>~54% (+432 bps YoY)</td>
+<td><a href="https://fintool.com/app/research/companies/FICO/earnings/Q1%202026">Fintool</a></td>
+</tr>
+<tr>
+<td>Operating margin (GAAP)</td>
+<td>~47.5%</td>
+<td><a href="https://finance.yahoo.com/quote/FICO/key-statistics/">Yahoo Finance</a></td>
+</tr>
+<tr>
+<td>Net margin</td>
+<td>~31.9%</td>
+<td><a href="https://finance.yahoo.com/quote/FICO/key-statistics/">Yahoo Finance</a></td>
+</tr>
+<tr>
+<td>FCF margin</td>
+<td>~37% (FY2025), ~32% (Q1)</td>
+<td>Calculated from press release data</td>
+</tr>
+</tbody>
+</table>
+<p>Margin trend: <strong>Expanding.</strong> Non-GAAP operating margin expanded 432 basis points YoY in Q1 2026 to 54%.</p>
+<p><strong>Balance sheet:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total debt</td>
+<td>~$3.09B</td>
+</tr>
+<tr>
+<td>Cash</td>
+<td>~$134M</td>
+</tr>
+<tr>
+<td>Net debt</td>
+<td>~$2.96B (-$125/share)</td>
+</tr>
+<tr>
+<td>Stockholders' equity</td>
+<td>Negative (buyback artifact)</td>
+</tr>
+<tr>
+<td>Current maturities</td>
+<td>~$400M (jumped from $15M in FY2024)</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://stockanalysis.com/stocks/fico/statistics/">Stock Analysis</a>, <a href="https://investors.fico.com/static-files/4dd43bd8-b07f-472c-9e53-5cb224ec9acd">FICO FY2025 10-K (via investors.fico.com)</a></p>
+<p>Negative equity is an accounting result of aggressive buybacks, not operational distress. But the $400M near-term maturity wall is notable.</p>
+<p><strong>Cash flow:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>FY2025</th>
+<th>Q1 FY2026</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating cash flow</td>
+<td>$779M</td>
+<td>$174M</td>
+</tr>
+<tr>
+<td>Free cash flow</td>
+<td>$739M (record)</td>
+<td>$165M</td>
+</tr>
+<tr>
+<td>FCF as % of revenue</td>
+<td>~37%</td>
+<td>~32%</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://investors.fico.com/static-files/4dd43bd8-b07f-472c-9e53-5cb224ec9acd">FICO FY2025 Annual Report</a>, <a href="https://finance.yahoo.com/news/fico-announces-earnings-6-61-211500794.html">FICO Q1 2026 Press Release</a></p>
+<p>FCF generation is exceptional — $739M annual free cash flow on $1.99B revenue is best-in-class.</p>
+<p><strong>Capital allocation:</strong> Almost entirely buybacks. Repurchased $1.4B in FY2025. In Q1 FY2026, bought back 95,000 shares at average $1,707/share ($163M). No dividend. Source: <a href="https://www.investing.com/news/company-news/fico-q1-2026-presentation-slides-scores-business-drives-16-revenue-growth-93CH-4471687">Investing.com</a></p>
+<p><strong>Arbiter note on buybacks:</strong> Management was buying back stock at $1,707 in Q1 — above where we bought our 1 share at $1,624. The stock is now at $1,283. Either they have more conviction than the market, or they're allocating capital poorly at premium multiples during a moat contraction. Time will tell.</p>
+<hr />
+<h2>SECTION 3: VALUATION</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Current Value</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trailing P/E (TTM)</td>
+<td>~47.5x</td>
+<td><a href="https://www.cnbc.com/quotes/FICO">CNBC</a></td>
+</tr>
+<tr>
+<td>Forward P/E (FY2026, Non-GAAP)</td>
+<td>~33.6x</td>
+<td>Computed: $1,283 / $38.17 guidance EPS</td>
+</tr>
+<tr>
+<td>Forward P/E (NTM, per CNBC)</td>
+<td>~28.5x</td>
+<td><a href="https://www.cnbc.com/quotes/FICO">CNBC</a> (uses consensus NTM est, not co. guidance)</td>
+</tr>
+<tr>
+<td>10-year average P/E</td>
+<td>~47.5x</td>
+<td><a href="https://fullratio.com/stocks/nyse-fico/pe-ratio">FullRatio</a></td>
+</tr>
+<tr>
+<td>10-year P/E low (Sep 2022)</td>
+<td>~28.7x at $412</td>
+<td><a href="https://fullratio.com/stocks/nyse-fico/pe-ratio">FullRatio</a></td>
+</tr>
+<tr>
+<td>P/FCF ratio</td>
+<td>~41x</td>
+<td>Calc: mkt cap ~$30.4B / FCF $739M</td>
+</tr>
+<tr>
+<td>EV/FCF</td>
+<td>~55.9x</td>
+<td><a href="https://stockanalysis.com/stocks/fico/statistics/">Stock Analysis</a></td>
+</tr>
+<tr>
+<td>PEG ratio</td>
+<td>~1.39</td>
+<td><a href="https://stockanalysis.com/stocks/fico/statistics/">Stock Analysis</a></td>
+</tr>
+<tr>
+<td>52-week high / low</td>
+<td>$2,218 / $1,268</td>
+<td><a href="https://www.macrotrends.net/stocks/charts/FICO/fair-isaac/stock-price-history">MacroTrends</a></td>
+</tr>
+<tr>
+<td>Current price</td>
+<td>$1,283</td>
+<td><a href="https://www.tradingview.com/symbols/NYSE-FICO/">TradingView</a> Feb 24, 2026</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Note on forward P/E discrepancies:</strong> CNBC reports ~28.5x using consensus next-twelve-month (NTM) EPS estimates, which blend multiple analysts and may include quarters beyond FY2026. For internal consistency, this analysis standardizes on <strong>price ÷ company Non-GAAP FY2026 EPS guidance ($38.17)</strong>, which yields <strong>~33.6x</strong>. The peer comparison table below uses the same NTM basis as the peers for apples-to-apples comparison.</p>
+</blockquote>
+<p><strong>Cheap vs its own history?</strong> On company guidance, forward P/E is ~33.6x — far below the 2024 peak of ~93x and below long-run averages, but the de-rating is structural, not a cyclical dip.</p>
+<p><strong>Cheap vs peers?</strong> No. Technology sector average P/E is ~28.8x. FICO is now trading roughly in-line with sector average on a trailing basis, but at a premium on forward given its growth rate. Source: <a href="https://fullratio.com/stocks/nyse-fico/pe-ratio">FullRatio</a></p>
+<p><strong>Cheap vs the market?</strong> No. S&amp;P 500 trades at ~22x earnings. FICO is still meaningfully above.</p>
+<p><strong>Absolute valuation sanity check (per our template):</strong>
+- Forward P/E &lt; 18? <strong>NO.</strong> 33.6x (on guidance) is 1.9x the guardrail.
+- P/FCF &lt; 20? <strong>NO.</strong> ~41x is 2x the guardrail.</p>
+<p><strong>Peer forward P/E comparison (anchoring for target multiples):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Peer</th>
+<th>Business</th>
+<th>Forward P/E</th>
+<th>Source</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VRSK (Verisk)</td>
+<td>Insurance data analytics, moat intact</td>
+<td>~24.6x</td>
+<td><a href="https://stockanalysis.com/stocks/vrsk/statistics/">Stock Analysis</a></td>
+</tr>
+<tr>
+<td>EFX (Equifax)</td>
+<td>Credit bureau, co-owns VantageScore</td>
+<td>~25.5x</td>
+<td><a href="https://stockanalysis.com/stocks/efx/statistics/">Stock Analysis</a></td>
+</tr>
+<tr>
+<td>MCO (Moody's)</td>
+<td>Financial data oligopoly, moat intact</td>
+<td>~30.1x</td>
+<td><a href="https://www.macrotrends.net/stocks/charts/MCO/moodys/pe-ratio">MacroTrends</a></td>
+</tr>
+<tr>
+<td><strong>FICO</strong></td>
+<td><strong>Credit scoring, narrowing moat</strong></td>
+<td><strong>~28.5x</strong></td>
+<td><a href="https://www.cnbc.com/quotes/FICO">CNBC</a></td>
+</tr>
+</tbody>
+</table>
+<p>Peer range for mission-critical financial data/analytics: <strong>~24x–30x forward P/E.</strong> FICO trades mid-range — but those peers have intact moats. FICO's is actively narrowing.</p>
+<p><strong>Fundamentals-derived target math:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Multiple</th>
+<th>× FY2026 EPS $38.17</th>
+<th>= Price</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Old target (monopoly-era, ~37x)</td>
+<td>37x</td>
+<td>$38.17</td>
+<td>$1,412 ← old $1,400 target</td>
+</tr>
+<tr>
+<td>MCO-level premium (intact oligopoly)</td>
+<td>30x</td>
+<td>$38.17</td>
+<td>$1,145</td>
+</tr>
+<tr>
+<td>Current peer midpoint (VRSK/EFX avg)</td>
+<td>25x</td>
+<td>$38.17</td>
+<td>$954</td>
+</tr>
+<tr>
+<td><strong>NEW START: peer-average for contested moat</strong></td>
+<td><strong>25x</strong></td>
+<td><strong>$38.17</strong></td>
+<td><strong>$954 → $950</strong></td>
+</tr>
+<tr>
+<td><strong>NEW ADD: below-peer, pricing in real erosion</strong></td>
+<td><strong>20x</strong></td>
+<td><strong>$38.17</strong></td>
+<td><strong>$763 → $750</strong></td>
+</tr>
+<tr>
+<td>Template "cheap by any standard" floor</td>
+<td>18x</td>
+<td>$38.17</td>
+<td>$687</td>
+</tr>
+</tbody>
+</table>
+<p>Source for EPS: <a href="https://www.investing.com/news/earnings/fico-shares-fall-as-revenue-guidance-misses-estimates-93CH-4471382">FICO FY2026 guidance via Investing.com</a></p>
+<p><strong>Why 25x (START)?</strong> This is the average forward P/E of Verisk (~24.6x) and Equifax (~25.5x) — mission-critical financial data businesses with intact competitive positions. FICO at 25x says: "We'll pay what the market pays for a quality analytics toll-booth, but no monopoly premium."</p>
+<p><strong>Why 20x (ADD)?</strong> A 20% discount to peer-average, pricing in meaningful VantageScore adoption. At 20x forward, even a 25% earnings hit still produces ~27x on reduced earnings — within the peer range. This is the "moat is narrowing and I want compensation for that risk" price.</p>
+<p><strong>New targets:</strong>
+- <strong>START: $950</strong> (25x forward EPS) — peer-average entry for a contested-moat compounder.
+- <strong>ADD: $750</strong> (20x forward EPS) — below-peer entry pricing in real moat erosion.</p>
+<p><strong>Earnings haircut sensitivity:</strong> If EPS falls ~20% (to ~$30.5), 25x implies ~$760 — this is why $950 is START and $750 is ADD.</p>
+<hr />
+<h2>SECTION 4: MOAT ASSESSMENT</h2>
+<p><strong>What protects this company from competition?</strong>
+- Regulatory entrenchment (now partially broken — see below)
+- Network effects: widely used by major U.S. lenders (exact adoption share: <strong>NOT FOUND</strong> in public data, but FICO states it is the industry standard used across the lending ecosystem)
+- Switching costs: entire lending workflows built around FICO
+- Brand: "FICO Score" is a household name</p>
+<p><strong>Moat trend: NARROWER.</strong> The evidence is concrete, not speculative:</p>
+<p><strong>Fact 1:</strong> On July 8, 2025, FHFA Director Bill Pulte directed Fannie Mae and Freddie Mac to accept VantageScore 4.0 as an alternative to Classic FICO for conforming mortgage origination — effective immediately. Source: <a href="https://www.fhfa.gov/policy/credit-scores">FHFA.gov</a></p>
+<p><strong>Interpretation:</strong> This is the most significant regulatory change to FICO's business model in 30 years. The exclusive mandate that created the monopoly has been removed.</p>
+<p><strong>Fact 2:</strong> As of January 1, 2026, GSEs permit lenders to choose between Classic FICO and VantageScore 4.0 for each loan delivered. Source: <a href="https://www.fhfa.gov/document/vantagescore-4.0-implementation-faq">FHFA FAQ</a></p>
+<p><strong>Interpretation:</strong> "Lender choice" means FICO must now compete on price and performance, not regulatory mandate.</p>
+<p><strong>Fact 3:</strong> A pricing war is underway. Equifax: VantageScore at $4.50/score through 2027 (free through 2026 for FICO customers). TransUnion: $4/score. Experian: free indefinitely, pledging 50%+ below FICO. FICO responded with Mortgage Direct at $4.95/score. Source: <a href="https://www.housingwire.com/articles/fhfa-credit-models-mortgage-lending/">HousingWire</a></p>
+<p><strong>Interpretation:</strong> FICO's per-score pricing power in mortgage origination — previously unchallenged — is now under direct competitive pressure.</p>
+<p><strong>Fact 4:</strong> 42 billion VantageScore credit scores were used in 2024, a 55% increase from 26.9 billion in 2023. Source: <a href="https://www.vantagescore.com/resources/knowledge-center/press_releases/vantagescore-4-0-allowed-for-use-on-all-fannie-mae-and-freddie-mac-mortgages-effective-immediately/">VantageScore</a></p>
+<p><strong>Interpretation:</strong> General VantageScore adoption is accelerating, though conforming mortgage-specific share data is not yet available.</p>
+<p><strong>Important nuance:</strong> FICO is not passive. The Mortgage Direct License Program bypasses bureau middlemen. FICO Score 10T (trended data) is more predictive than Classic FICO. The Plaid/UltraFICO partnership adds real-time cash flow data. These moves could preserve dominance — but they also acknowledge the monopoly era is over.</p>
+<p><strong>Closest competitor:</strong> VantageScore 4.0 (jointly owned by Equifax, Experian, TransUnion). Gaining ground by regulatory mandate and aggressive pricing.</p>
+<p><strong>AI disruption test: LOW-MEDIUM.</strong>
+AI is not the primary threat — regulatory action is. AI could accelerate the shift via cash-flow-based underwriting that bypasses traditional scores for "thin-file" borrowers, but this is addressable-market erosion, not core-revenue displacement. FICO itself is incorporating AI (FICO Score 10T, Plaid partnership).</p>
+<hr />
+<h2>SECTION 5: RISKS &amp; THREATS</h2>
+<p><strong>Regulatory/legal risks: HIGH — actively materializing.</strong>
+- <em>Fact:</em> FHFA removed the FICO-only mandate for GSE loans (Jul 2025). <em>Interpretation:</em> This structurally weakens FICO's monopoly moat.
+- <em>Fact:</em> Bi-merge transition (from tri-merge) is underway. <em>Interpretation:</em> Further restructures the scoring ecosystem.
+- <em>Fact:</em> CFPB scrutiny on scoring bias and pricing remains ongoing. <em>Interpretation:</em> Additional regulatory pressure possible.
+- Sources: <a href="https://www.fhfa.gov/policy/credit-scores">FHFA</a>, <a href="https://www.urban.org/urban-wire/considerations-implementing-new-credit-scores-mortgage-lending">Urban Institute</a></p>
+<p><strong>Competitive threats (specific, named):</strong>
+- <em>Fact:</em> VantageScore 4.0 is now GSE-approved and being offered at 50–100% discounts to FICO pricing. <em>Interpretation:</em> Direct pricing pressure on FICO's highest-margin product.
+- <em>Fact:</em> Fintech lenders (Upstart, Zest AI) build alternative ML-based credit models. <em>Interpretation:</em> Long-term risk to scoring model relevance.
+- Sources: <a href="https://www.housingwire.com/articles/fhfa-credit-models-mortgage-lending/">HousingWire</a>, <a href="https://www.vantagescore.com/resources/knowledge-center/press_releases/vantagescore-4-0-allowed-for-use-on-all-fannie-mae-and-freddie-mac-mortgages-effective-immediately/">VantageScore</a></p>
+<p><strong>Macro/cyclical sensitivity: MODERATE.</strong>
+- <em>Fact:</em> Q1 FY2026 B2B mortgage scores revenue surged 36% partly from volume recovery. <em>Interpretation:</em> Mortgage volume is a direct revenue driver; a housing freeze reverses this.</p>
+<p><strong>Management/insider activity: BEARISH.</strong>
+- <em>Fact:</em> 0 insider purchases and 68 insider sales in the 6 months ending Jan 2026. CEO Lansing sold ~$32M in stock (20,432 shares). Source: <a href="https://www.quiverquant.com/news/FAIR+ISAAC+CORP+($FICO)+CEO+2025+Pay+Revealed">Quiver Quantitative</a> (aggregator of SEC Form 4 filings)
+- <em>Fact:</em> Earlier window (through Sep 2025): 0 purchases, 254 sales. CEO sold ~$63M. Source: <a href="https://www.quiverquant.com/news/Insider+Sale:+President+and+CEO+of+$FICO+Sells+100+Shares">Quiver Quantitative</a> (aggregator; underlying data from <a href="https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&amp;CIK=0000814547&amp;type=4&amp;dateb=&amp;owner=include&amp;count=40">SEC EDGAR Form 4 filings</a>)
+- <em>Interpretation:</em> Insider selling at this magnitude does not prove fundamental weakness on its own — much of it is option-exercise-driven. But in combination with regulatory moat erosion and expensive valuation, it increases downside asymmetry.</p>
+<p><strong>Customer concentration risk: HIGH.</strong>
+- <em>Fact:</em> U.S. lending market is the overwhelming majority of revenue. Conforming mortgage origination is the crown jewel. <em>Interpretation:</em> The exact segment under competitive attack is the most important one.</p>
+<hr />
+<h2>SECTION 6: THESIS &amp; EXIT CRITERIA</h2>
+<p><strong>Original thesis:</strong> FICO is the "toll booth" of the American credit system — a regulatory monopoly with near-zero marginal cost, extreme pricing power, and no viable alternative.</p>
+<p><strong>Nature of risk: STRUCTURAL.</strong>
+This is not a cyclical downturn or a bad quarter. The regulatory mandate that created the monopoly has been removed by FHFA policy. The competitive landscape has permanently changed. This distinction matters: cyclical risks resolve on their own; structural risks require the business to adapt or accept a lower earnings multiple.</p>
+<p><strong>Exit criteria (from our system):</strong> "VantageScore gains &gt;30% GSE market share; CFPB regulatory action on pricing."</p>
+<p><strong>Has exit criteria been triggered or approached?</strong>
+- <em>Fact:</em> VantageScore is now approved for GSE use (Jul 2025) and implementation began Jan 1, 2026.
+- <em>Fact:</em> Conforming mortgage-specific VantageScore market share data is NOT YET AVAILABLE — implementation is only 2 months old.
+- <em>Interpretation:</em> The exit trigger has not been met numerically, but the preconditions are now in place. Direction of travel is clearly against FICO's monopoly. The question is speed of adoption, not direction.</p>
+<p><strong>Thesis status: WEAKENING.</strong></p>
+<p>The monopoly thesis is damaged. FICO is no longer the only option. But it remains the dominant option, and lending ecosystem inertia is enormous. Revenue is growing 16% and earnings are beating. The business is executing — it's the moat premium that's being repriced.</p>
+<hr />
+<h2>SECTION 7: VERDICT</h2>
+<p><strong>Best-of-breed test: MAYBE.</strong>
+Historically an unambiguous YES — the monopoly scoring provider with no competitor. Today a MAYBE: still dominant, still high-margin, still exceptional FCF, but the regulatory monopoly is cracked and the trajectory favors competition.</p>
+<p><strong>Watchlist decision: KEEP (WATCH).</strong>
+Don't remove. FICO remains one of the highest-quality cash-flow businesses in the market. But reclassify from "premium compounder" to "moat-under-pressure compounder." The entry multiple must be LOWER now that competition is real.</p>
+<p><strong>Position decision: HOLD 1 share. DO NOT ADD at current prices.</strong></p>
+<p>We own 1 share at $1,623.97 (Jan 29 Track 2 tantrum buy, -21% as of $1,283).</p>
+<p><em>Why not sell?</em>
+- The position is ~$1,283 in a $40K+ portfolio — roughly 3% of capital.
+- The business is still executing (16% revenue growth, earnings beats, $739M FCF). This is not a thesis-broken NVO situation.
+- Selling to rebuy at $950 requires being right on both direction AND timing. VantageScore GSE adoption could stall (implementation is notoriously slow) and FICO could rebound before hitting $950.
+- Keeping 1 share forces us to monitor every earnings call and VantageScore adoption update — "skin in the game."
+- <strong>Acknowledged downside:</strong> We accept the risk that FICO can continue de-rating for years if the monopoly premium collapses further. At $1,283, a further 25% decline to $950 (our new START target) would add ~$333 to the unrealized loss on this 1 share. That's a tolerable cost for maintaining monitoring discipline on a $40K+ portfolio.</p>
+<p><em>Why not add?</em>
+- At $1,283 with a forward P/E of ~33.6x (on guidance), we are paying <strong>upper-mid peer range for a business whose moat is less secure than peers</strong>.
+- Insiders are selling aggressively while the moat comes under regulatory attack.
+- Our new fundamentals-derived START target is $950, which is 26% below current price.
+- Cash preservation for better entries is the system's core discipline.</p>
+<p><strong>Revised targets (fundamentals-derived, moat-erosion adjusted):</strong></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Old Target</th>
+<th>New Target</th>
+<th>Multiple Basis</th>
+<th>Change</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>START</td>
+<td>$1,400</td>
+<td><strong>$950</strong></td>
+<td>25x forward EPS ($38.17)</td>
+<td>-32%</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>$1,300</td>
+<td><strong>$750</strong></td>
+<td>20x forward EPS ($38.17)</td>
+<td>-42%</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Sizing plan if targets hit:</strong>
+- At $950 (START): Buy 1 share ($950). Combined position: 2 shares, avg cost ~$1,287.
+- At $750 (ADD): Buy 1 share ($750). Combined position: 3 shares, avg cost ~$1,108.
+- Total max FICO exposure: 3 shares, ~$3,324 invested. Appropriate for a thesis-weakening name.</p>
+<p><strong>Exit trigger:</strong> VantageScore achieves &gt;30% GSE conforming mortgage share (per our coded exit criteria), OR FICO reports 2+ consecutive quarters of Scores segment revenue decline.</p>
+<p><strong>Confidence level: 72%</strong></p>
+<hr />
+<h2>APPENDIX: AI ANALYST DIFFERENCES (Process Transparency)</h2>
+<table>
+<thead>
+<tr>
+<th>Topic</th>
+<th>Gemini (Narrator)</th>
+<th>Chat (Auditor)</th>
+<th>Arbiter</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Moat trend</td>
+<td>SAME</td>
+<td>NARROWER</td>
+<td><strong>NARROWER</strong> — agree with Chat</td>
+</tr>
+<tr>
+<td>Best-of-breed</td>
+<td>YES</td>
+<td>MAYBE</td>
+<td><strong>MAYBE</strong> — agree with Chat</td>
+</tr>
+<tr>
+<td>Thesis status</td>
+<td>INTACT</td>
+<td>WEAKENING</td>
+<td><strong>WEAKENING</strong> — agree with Chat</td>
+</tr>
+<tr>
+<td>Confidence</td>
+<td>85%</td>
+<td>68%</td>
+<td><strong>72%</strong></td>
+</tr>
+<tr>
+<td>Valuation cheap?</td>
+<td>"Within striking distance"</td>
+<td>"Not cheap by any standard"</td>
+<td><strong>NOT CHEAP</strong> — agree with Chat</td>
+</tr>
+<tr>
+<td>Action</td>
+<td>KEEP (WATCH) / HOLD</td>
+<td>KEEP (WATCH) / HOLD no ADD</td>
+<td><strong>HOLD 1 share, NO ADD</strong></td>
+</tr>
+<tr>
+<td>AI disruption risk</td>
+<td>MEDIUM</td>
+<td>MEDIUM</td>
+<td><strong>LOW-MEDIUM</strong> — regulatory risk is the real threat</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Key disagreement with Gemini:</strong> Gemini rates the moat as SAME and thesis as INTACT. The Arbiter disagrees. When the regulator who controls 60%+ of the mortgage market explicitly breaks your exclusive mandate, the moat is not "the same." Gemini is underweighting the FHFA VantageScore decision, which is the most significant regulatory change to FICO's business model in 30 years.</p>
+<p><strong>Key agreement with Chat:</strong> Chat correctly identified the moat as NARROWER and was appropriately cautious on valuation. Chat's Moat Deterioration Surcharge concept (20–30% multiple haircut) directly informed the new targets.</p>
+<hr />
+<h2>SELF-ASSESSMENT: LESSONS FOR THE SYSTEM</h2>
+<p><strong>1. We chased FICO.</strong> We bought 1 share at $1,624 on a Track 2 tantrum (Jan 29) — above our own $1,400 START target. The stock is now $1,283, a -21% loss. The VantageScore/FHFA threat was already public (announced Jul 2025). We mistakenly called this "multiple compression on a monopoly" when the monopoly itself was being dismantled.</p>
+<p><strong>2. The old targets were stale.</strong> $1,400/$1,300 priced FICO at ~37x forward earnings — a monopoly premium. With the monopoly cracked, those targets were too generous by 30–40%.</p>
+<p><strong>3. New system rule (proposed): Moat Deterioration Surcharge.</strong> When moat status changes from SAME → NARROWER during fundamental review, reduce START/ADD targets by 20–30% and require re-derivation from fundamentals (forward P/E × EPS guidance) rather than using historical price floors. This prevents anchoring on "where it used to trade" when the business reality has changed.</p>
+<p><strong>4. New template field (proposed): Nature of Risk label.</strong> Add STRUCTURAL / CYCLICAL / MIXED to Section 6 for every analysis. This prevents mixing "one bad quarter" with "the moat is changing."</p>
+<hr />
+<p><em>Next earnings: Q2 FY2026, estimated April 28, 2026.</em></p>
+<p><em>Key monitoring KPIs (what to look for in the Q2 earnings release and call):</em>
+- <strong>Scores segment revenue YoY growth %</strong> — Q1 was +29%. Any deceleration below +20% signals pricing pressure arriving. Watch QoQ trend too.
+- <strong>B2B Scores pricing vs volume decomposition</strong> — management typically breaks out "price" vs "volume" drivers on the call. If volume is flat but price is declining, VantageScore competition is biting.
+- <strong>Any disclosed lender adoption mentions</strong> — even anecdotal references to "early VantageScore adopters," GSE implementation pace, or pipeline commentary from management. This is the leading indicator before it shows in revenue.
+- <strong>Insider purchases</strong> — any reversal of the 0-buy / 254-sell pattern would be a meaningful signal of management confidence at these price levels.
+- <strong>FY2026 guidance revisions</strong> — current guidance is $2.35B revenue / $38.17 Non-GAAP EPS. Any downward revision to Scores-specific guidance is an escalation trigger.</p>
+
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors.
+            Past performance does not guarantee future results. We may hold positions in the stocks discussed.
+            You are responsible for your own decisions.
+        </div>
+        <p>&copy; 2026 Tantrums &amp; Targets</p>
+    </footer>
+</body>
+</html>
