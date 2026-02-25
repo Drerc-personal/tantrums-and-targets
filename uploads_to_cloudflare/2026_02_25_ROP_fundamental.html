@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ROP Fundamental Analysis - Tantrums &amp; Targets</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .meta-bar {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            padding: 1rem;
+            background: var(--bg-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            margin-bottom: 1.5rem;
+            font-family: var(--font-ui);
+            font-size: 0.85rem;
+        }
+        .meta-bar .meta-item {
+            display: flex;
+            flex-direction: column;
+        }
+        .meta-bar .meta-label {
+            font-weight: 600;
+            color: var(--text-light);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+        .meta-bar .meta-value {
+            font-weight: 600;
+            color: var(--text);
+        }
+        .meta-bar .meta-value.intact { color: #38a169; }
+        .meta-bar .meta-value.weakening { color: #dd6b20; }
+        .meta-bar .meta-value.hold { color: #3182ce; }
+        .meta-bar .meta-value.watch { color: #dd6b20; }
+        .meta-bar .meta-value.positive { color: #38a169; }
+        .meta-bar .meta-value.moderate { color: #d69e2e; }
+        main.container h2 {
+            border-bottom: 2px solid var(--secondary);
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        main.container table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        main.container th {
+            background: #edf2f7;
+            text-align: left;
+            padding: 0.5rem 0.75rem;
+            font-family: var(--font-ui);
+            font-size: 0.8rem;
+        }
+        main.container td {
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        main.container blockquote {
+            background: #fffaf0;
+            border-left: 4px solid #ed8936;
+            padding: 0.75rem 1rem;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo"><span class="tantrum">Tantrums</span> &amp; <span class="target">Targets</span></a>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="scoreboard.html">Scoreboard</a>
+                <a href="roundtable.html">Roundtable</a>
+                <a href="fundamentals.html">Fundamentals</a>
+                <a href="methodology.html">Methodology</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="container">
+        <p class="text-muted"><a href="fundamentals.html">&larr; Back to Fundamental Analysis Archive</a></p>
+
+        <h1>ROP &mdash; Roper Technologies, Inc.</h1>
+        <p class="text-muted">Fundamental Analysis &bull; The Arbiter&rsquo;s Synthesis &bull; February 25, 2026</p>
+
+        <div class="meta-bar">
+            <div class="meta-item">
+                <span class="meta-label">Ticker</span>
+                <span class="meta-value">ROP</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Price (as-of)</span>
+                <span class="meta-value">$317</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Verdict</span>
+                <span class="meta-value watch">KEEP (WATCH)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Position</span>
+                <span class="meta-value">HOLD 12 @ ~$394</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Thesis</span>
+                <span class="meta-value weakening">INTACT (SCRUTINY)</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Risk Type</span>
+                <span class="meta-value">CYCLICAL + EXECUTION</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Moat Type</span>
+                <span class="meta-value">SOFTWARE + SWITCHING COSTS</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">ADD Target</span>
+                <span class="meta-value watch">SUSPENDED</span>
+            </div>
+            <div class="meta-item">
+                <span class="meta-label">Confidence</span>
+                <span class="meta-value moderate">72%</span>
+            </div>
+        </div>
+
+<h1>TANTRUMS &amp; TARGETS — FUNDAMENTAL ANALYSIS</h1>
+<h2>ROPER TECHNOLOGIES, INC. (NASDAQ: ROP)</h2>
+<h3>THE ARBITER'S ANALYSIS — February 25, 2026</h3>
+<p><strong>As-of date:</strong> February 25, 2026. All prices and ratios use <strong>$317</strong> unless otherwise noted.
+52-week range: $313.07 – $595.17. Source: <a href="https://www.tradingview.com/symbols/NASDAQ-ROP/">TradingView</a></p>
+<hr />
+<p><strong>Central question:</strong> <em>Does this company deserve a spot on a concentrated watchlist of the best businesses in the world?</em></p>
+<p><strong>Short answer:</strong> <strong>KEEP (WATCH).</strong> Roper is a proven free cash flow compounder with a portfolio of niche vertical software businesses and sticky customer bases. However, organic growth decelerated to 4% in Q4 2025 — exactly at our exit threshold. The stock is down 44% from its 52-week high and trades at historically cheap multiples. This is either a compelling entry point on a temporarily de-rated compounder, or the market is pricing in structural deceleration. We own 12 shares at ~$393.88 blended cost across two accounts. Hold position, do NOT add until organic growth confirms re-acceleration above 5%.</p>
+<hr />
+<h2>SECTION 1: BUSINESS IDENTITY</h2>
+<p><strong>Core business:</strong> Roper Technologies is a diversified holding company that acquires, owns, and operates market-leading vertical software and technology-enabled product businesses serving defensible niche markets.</p>
+<p><strong>Moat type: SOFTWARE + SWITCHING COSTS (decentralized acquisition compounder).</strong></p>
+<p>Roper's model is often compared to Constellation Software (CSU.TO) or Danaher's pre-split playbook: buy niche-dominant, mission-critical software businesses at disciplined valuations, let them operate independently, and redeploy the free cash flow into the next acquisition. The moat is the aggregate switching cost across dozens of business-critical platforms embedded in customer workflows.</p>
+<p><strong>How it makes money (3 segments, FY2025 full year: $7.90B total revenue):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Segment</th>
+<th>FY2025 Revenue</th>
+<th>YoY Growth</th>
+<th>Key Businesses</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Application Software</td>
+<td>~$4.26B</td>
+<td>+16% (10% acq, +5% organic)</td>
+<td>Deltek, Vertafore, PowerPlan, Frontline, Aderant, Strata, ProCare, CentralReach</td>
+<td>Mission-critical workflow software for government contractors (Deltek), insurance agencies (Vertafore), utilities (PowerPlan), K-12 schools (Frontline), law firms (Aderant), ABA therapy (CentralReach)</td>
+</tr>
+<tr>
+<td>Network Software</td>
+<td>~$1.66B</td>
+<td>+4%</td>
+<td>DAT, ConstructConnect, iPipeline, Foundry, SoftWriters</td>
+<td>Freight matching marketplace (DAT), construction bid network (ConstructConnect), life insurance platform (iPipeline)</td>
+</tr>
+<tr>
+<td>Technology Enabled Products</td>
+<td>~$1.88B</td>
+<td>+7% (6% organic)</td>
+<td>Neptune, Verathon, Northern Digital, FMI, rf IDEAS</td>
+<td>Water meters (Neptune), medical devices/visualization (Verathon), electromagnetic tracking (NDI)</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.ropertech.com/news-releases/news-release-details/roper-technologies-announces-2025-financial-results">Roper Technologies Q4 2025 press release (ropertech.com)</a>, <a href="https://www.investing.com/news/company-news/roper-technologies-q4-2025-slides-revenue-miss-overshadows-solid-growth-93CH-4467924">Investing.com Q4 2025 slides summary</a>, <a href="https://finviz.com/news/288475/heres-what-key-metrics-tell-us-about-roper-technologies-rop-q4-earnings">Zacks Q4 segment breakdown</a></p>
+<p>Application Software is the growth engine (~54% of revenue). Network Software includes DAT, which is tied to the freight cycle and has been a headwind. Technology Enabled Products is the legacy hardware segment, smaller and growing more slowly.</p>
+<p><strong>Who the customer is:</strong> Government contractors (Deltek), insurance brokers/agencies (Vertafore), K-12 school districts (Frontline), law firms (Aderant), utilities (PowerPlan), freight brokers and carriers (DAT), higher education institutions (Transact/CBORD), early childhood education centers (ProCare), ABA therapy providers (CentralReach), construction bidders (ConstructConnect), life insurance carriers (iPipeline), hospital systems and surgery centers (Verathon), water utilities (Neptune). No single customer is &gt;10% of revenue. Source: <a href="https://www.stocktitan.net/sec-filings/ROP/10-k-roper-technologies-inc-files-annual-report-ea07188a13c1.html">Roper FY2025 10-K (SEC) — link via StockTitan</a></p>
+<p><strong>Why customers pay and stay:</strong> Each Roper subsidiary is typically the #1 or #2 platform in a narrow vertical. These are workflow-critical systems — Deltek runs the project accounting and timekeeping for thousands of government contractors; Vertafore processes insurance policy management for agencies; Frontline manages HR/recruiting for school districts. Switching costs are enormous: migration is expensive, disruptive, and risky. Management has historically cited high retention rates across the portfolio (mid-to-high 90s logo retention referenced in earnings calls). Source: <a href="https://www.datainsightsmarket.com/companies/ROP">Roper investor presentations referenced via DataInsightsMarket</a>. <em>Note: Primary source (10-K or IR deck) should be confirmed; this is a management claim, not an independently verified figure.</em></p>
+<hr />
+<h2>SECTION 2: FINANCIAL HEALTH</h2>
+<p><strong>Revenue (3-year trend + most recent quarter):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Period</th>
+<th>Revenue</th>
+<th>YoY Growth</th>
+<th>Organic Growth</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FY2023</td>
+<td>$6.18B</td>
+<td>+15%</td>
+<td>~6%</td>
+</tr>
+<tr>
+<td>FY2024</td>
+<td>$7.04B</td>
+<td>+14%</td>
+<td>+6%</td>
+</tr>
+<tr>
+<td>FY2025</td>
+<td>$7.90B</td>
+<td>+12%</td>
+<td>+5%</td>
+</tr>
+<tr>
+<td>Q4 2025</td>
+<td>$2.06B</td>
+<td>+10%</td>
+<td><strong>+4%</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.ropertech.com/news-releases/news-release-details/roper-technologies-announces-2025-financial-results">Roper Q4 2025 press release (ropertech.com)</a>, <a href="https://www.macrotrends.net/stocks/charts/ROP/roper-technologies/revenue">MacroTrends revenue history</a>, <a href="https://www.ropertech.com/news-releases/news-release-details/roper-technologies-announces-first-quarter-financial-results-1">Roper Q1 2025 press release</a></p>
+<p>The critical number: <strong>Q4 organic growth was 4%.</strong> Our exit criteria is "Organic growth &lt;4% for 2+ years." We are at the <strong>warning boundary</strong> — the trigger is <em>below</em> 4% sustained, not <em>at</em> 4%. But the trend (6% → 6% → 5% → 4% in Q4) is heading in the wrong direction. Full-year organic growth was 5%, but the trend is decelerating (6% → 6% → 5% → 4% in Q4). Management guided FY2026 organic growth of 5–6%, but explicitly stated they are "not starting the year assuming organic growth will inflect in 2026." Source: <a href="https://www.theglobeandmail.com/investing/markets/stocks/ROP/pressreleases/37251517/roper-rop-q4-2025-earnings-call-transcript/">Roper Q4 2025 earnings call (Globe and Mail transcript)</a></p>
+<p><strong>2026 guidance:</strong> Total revenue growth ~8% (including acquisitions), organic 5–6%. Adjusted DEPS $21.30–$21.55. Q1 2026 adjusted DEPS $4.95–$5.00. Source: <a href="https://www.ropertech.com/news-releases/news-release-details/roper-technologies-announces-2025-financial-results">Roper Q4 2025 press release</a></p>
+<p><strong>Earnings (EPS trend and beat/miss history):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Quarter</th>
+<th>Adj. DEPS</th>
+<th>vs Estimate</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Q4 2025 (Dec 2025)</td>
+<td>$5.21</td>
+<td>Est $5.14</td>
+<td><strong>BEAT</strong> +1.4%</td>
+</tr>
+<tr>
+<td>Q3 2025 (Sep 2025)</td>
+<td>$5.14</td>
+<td>Est $5.11</td>
+<td>BEAT +0.6%</td>
+</tr>
+<tr>
+<td>Q2 2025 (Jun 2025)</td>
+<td>$4.87</td>
+<td>Est $4.83</td>
+<td>BEAT +0.8%</td>
+</tr>
+<tr>
+<td>Q1 2025 (Mar 2025)</td>
+<td>$4.78</td>
+<td>Est $4.74</td>
+<td>BEAT +0.8%</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://public.com/stocks/rop/earnings">Public.com earnings history</a>, <a href="https://www.investing.com/equities/roper-industries-earnings">Investing.com earnings</a></p>
+<p>Roper has beaten EPS estimates in all 4 quarters of 2025. Full-year adjusted DEPS: $20.00, up 9% YoY. However, the beats are narrow (0.6%–1.4%), and the stock dropped ~10% after the Q4 report because of the revenue miss (-$20M vs consensus). The market is punishing top-line misses even when EPS beats — indicating valuation is driven by growth expectations, not just profitability.</p>
+<p><strong>Margins:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>FY2023</th>
+<th>FY2024</th>
+<th>FY2025</th>
+<th>Trend</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Gross margin</td>
+<td>—</td>
+<td>~68%</td>
+<td>69.5%</td>
+<td>Expanding (+120 bps in Q4)</td>
+</tr>
+<tr>
+<td>EBITDA margin</td>
+<td>~39%</td>
+<td>~40%</td>
+<td>39.8%</td>
+<td>Stable</td>
+</tr>
+<tr>
+<td>Net margin (GAAP)</td>
+<td>—</td>
+<td>~22%</td>
+<td>19.4%</td>
+<td>Compressing</td>
+</tr>
+<tr>
+<td>FCF margin</td>
+<td>~31%</td>
+<td>~31%</td>
+<td>~31%</td>
+<td>Stable</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.investing.com/news/company-news/roper-technologies-q4-2025-slides-revenue-miss-overshadows-solid-growth-93CH-4467924">Investing.com Q4 slides</a>, <a href="https://simplywall.st/stocks/us/software/nasdaq-rop/roper-technologies/news/roper-technologies-rop-margin-compression-challenges-bullish">Simply Wall St margin analysis</a>, <a href="https://stockanalysis.com/stocks/rop/statistics/">StockAnalysis.com</a></p>
+<p>The divergence between GAAP net margin (compressing from 22% → 19.4%) and adjusted EBITDA margin (stable ~40%) is driven by acquisition-related amortization and Indicor minority interest adjustments. Adjusted EBITDA of $3.14B on $7.90B revenue is 39.8%. Gross margin <em>expanded</em> 120 bps to 69.5% in Q4 — core operations are healthy. The 31% FCF margin is the true profitability signal and it has been remarkably consistent.</p>
+<p><strong>Balance sheet:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total debt</td>
+<td>$9.30B</td>
+</tr>
+<tr>
+<td>Cash</td>
+<td>$297M</td>
+</tr>
+<tr>
+<td>Net debt</td>
+<td>~$9.0B</td>
+</tr>
+<tr>
+<td>Net debt / EBITDA</td>
+<td>2.9x</td>
+</tr>
+<tr>
+<td>Debt/equity ratio</td>
+<td>0.47</td>
+</tr>
+<tr>
+<td>Revolver ($3.5B facility)</td>
+<td>$850M drawn</td>
+</tr>
+<tr>
+<td>Remaining repurchase authorization</td>
+<td>$2.5B of $3.0B</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://stockanalysis.com/stocks/rop/statistics/">StockAnalysis.com statistics</a>, <a href="https://www.investing.com/news/company-news/roper-technologies-q4-2025-slides-revenue-miss-overshadows-solid-growth-93CH-4467924">Roper Q4 2025 slides (Investing.com)</a></p>
+<p>This is the key differentiator from Copart's zero-debt fortress. Roper runs a leveraged acquisition model: borrow → buy → compound FCF → redeploy. Net debt of $9.0B is meaningful but manageable at 2.9x EBITDA with $2.47B in annual FCF. The $3.5B revolver with only $850M drawn provides significant liquidity. However, this leverage means Roper is more sensitive to rising interest rates than zero-debt peers. Per management commentary, the company issued approximately $2B in bonds in 2024 across five, seven, and ten-year tenors at a blended rate of approximately 4.8% to fund the Transact acquisition. Source: <a href="https://www.datainsightsmarket.com/companies/ROP">Roper earnings call commentary via DataInsightsMarket</a>. <em>Note: Bond terms should be confirmed against the 10-K debt schedule for precision.</em></p>
+<p><strong>Cash flow:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>FY2023</th>
+<th>FY2024</th>
+<th>FY2025</th>
+<th>3Y CAGR</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Operating cash flow</td>
+<td>—</td>
+<td>~$2.40B</td>
+<td>$2.54B</td>
+<td>—</td>
+</tr>
+<tr>
+<td>CapEx</td>
+<td>—</td>
+<td>—</td>
+<td>$47.4M</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Free cash flow</td>
+<td>—</td>
+<td>~$2.28B</td>
+<td>$2.47B</td>
+<td>18%</td>
+</tr>
+<tr>
+<td>FCF as % of revenue</td>
+<td>~31%</td>
+<td>~31%</td>
+<td>31%</td>
+<td>Stable</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://stockanalysis.com/stocks/rop/statistics/">StockAnalysis.com</a>, <a href="https://www.ropertech.com/news-releases/news-release-details/roper-technologies-announces-2025-financial-results">Roper Q4 2025 press release</a></p>
+<p>$2.47B of FCF on only $47M of CapEx is extraordinary — this is among the highest FCF conversion businesses in the S&amp;P 500. The low CapEx is structural: software businesses don't need factories. The 18% 3-year FCF CAGR demonstrates durable compounding. This is the core of the Roper thesis.</p>
+<p><strong>Capital allocation:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Deployment</th>
+<th>FY2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Acquisitions</td>
+<td>$3.3B (CentralReach $1.65B, Subsplash $800M, bolt-ons)</td>
+</tr>
+<tr>
+<td>Share repurchases</td>
+<td>$500M (1.12M shares at ~$446 avg)</td>
+</tr>
+<tr>
+<td>Dividends</td>
+<td>$3.64/share annualized (~$390M)</td>
+</tr>
+<tr>
+<td>Forward M&amp;A capacity</td>
+<td>$6.0B+</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://www.ropertech.com/news-releases/news-release-details/roper-technologies-announces-2025-financial-results">Roper Q4 2025 press release</a>, <a href="https://www.theglobeandmail.com/investing/markets/stocks/ROP/pressreleases/37251517/roper-rop-q4-2025-earnings-call-transcript/">Roper Q4 2025 earnings call transcript</a></p>
+<p>The $500M buyback at ~$446 average is notable — management was buying its own stock at prices 40% above current. They initiated the buyback program in Q4 2025 and deployed aggressively. The 33rd consecutive annual dividend increase (10% raise) signals confidence. $6B+ of M&amp;A capacity heading into 2026 means the acquisition pipeline is well-funded. CEO Hunn stated the M&amp;A market is becoming more favorable as private equity faces pressure to generate liquidity. Source: <a href="https://www.theglobeandmail.com/investing/markets/stocks/ROP/pressreleases/37251517/roper-rop-q4-2025-earnings-call-transcript/">Roper Q4 2025 earnings call</a></p>
+<hr />
+<h2>SECTION 3: VALUATION</h2>
+<p><strong>Current multiples (at $317):</strong></p>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Value</th>
+<th>5Y Avg</th>
+<th>vs 5Y Avg</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Trailing P/E (GAAP)</td>
+<td>~22.3x</td>
+<td>~30x</td>
+<td>-26% below</td>
+</tr>
+<tr>
+<td>Forward P/E (FY2026 adj DEPS $21.43 midpoint)</td>
+<td>~14.8x</td>
+<td>~30x</td>
+<td>-51% below</td>
+</tr>
+<tr>
+<td>P/FCF</td>
+<td>~14.0x</td>
+<td>~25-28x</td>
+<td>-44% below</td>
+</tr>
+<tr>
+<td>EV/EBITDA</td>
+<td>14.3x</td>
+<td>~22-25x</td>
+<td>-36% below</td>
+</tr>
+</tbody>
+</table>
+<p>Source: <a href="https://stockanalysis.com/stocks/rop/statistics/">StockAnalysis.com</a>, system P/E 5Y average from WATCHLIST config (PE_5Y_AVG = 30)</p>
+<p><strong>P/E compression warning:</strong> Current forward P/E of ~14.8x is less than 50% of the 5-year average of 30x. <strong>This triggers our P/E compression flag.</strong> Per the CPRT lesson: this could mean either (a) the market is overreacting to temporary growth deceleration and this is an exceptional value, or (b) the market is structurally re-pricing Roper because organic growth is decelerating and the acquisition-driven model faces higher cost of capital.</p>
+<p><strong>Absolute valuation sanity check:</strong> A forward P/E of ~14.8x for a business generating 31% FCF margins, growing FCF at 18% CAGR over 3 years, with $6B+ of deployment capacity, is objectively cheap by almost any standard. The template guardrail says "Forward P/E &lt; ~18 for a high-quality compounder = cheap by any standards." Roper clears that threshold with room to spare. However, the denominator (earnings) must be reliable — if organic growth slips below 4% and acquisitions don't compound, the forward estimates compress and the "cheap" P/E is an illusion.</p>
+<p><strong>System rule: Cheap doesn't mean buyable.</strong> Our system requires <em>growth confirmation</em> when a compounder is being structurally repriced. The P/E compression flag (current forward P/E &lt; 50% of 5-year average) can signal either a tantrum or a repricing. When accompanied by decelerating organic growth, we treat it as a repricing candidate until proven otherwise. Trailing P/E is GAAP; forward P/E uses adjusted DEPS guidance midpoint ($21.43).</p>
+<p><strong>Peer comparison:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Company</th>
+<th>Forward P/E</th>
+<th>P/FCF</th>
+<th>Category</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ROP</strong></td>
+<td><strong>~14.8x</strong></td>
+<td><strong>~14.0x</strong></td>
+<td>Software compounder</td>
+</tr>
+<tr>
+<td>Constellation Software (CSU.TO)</td>
+<td>Premium to ROP (trades at significantly higher multiples)</td>
+<td>—</td>
+<td>Closest comp (serial acquirer of vertical software)</td>
+</tr>
+<tr>
+<td>S&amp;P 500 (VOO)</td>
+<td>~21x</td>
+<td>—</td>
+<td>Benchmark</td>
+</tr>
+</tbody>
+</table>
+<p>Roper is trading at a significant discount to Constellation Software, its closest business-model peer. While CSU has a longer track record of disciplined small acquisitions and commands a premium multiple, Roper is generating similar FCF margins. The discount reflects the market's concern about Roper's larger deal sizes (CentralReach $1.65B, Transact $1.6B) which carry more integration risk than CSU's hundreds of small bolt-ons. <em>Note: CSU.TO specific multiples not cited — confirm via Bloomberg or comparable source before publication.</em></p>
+<hr />
+<h2>SECTION 4: MOAT ASSESSMENT</h2>
+<p><strong>What protects this company from competition?</strong></p>
+<ol>
+<li>
+<p><strong>Switching costs:</strong> Each Roper subsidiary operates mission-critical workflow software. Deltek is the system of record for government contractor project accounting; Vertafore manages insurance agency operations; Frontline handles K-12 HR and hiring. Ripping out these systems means months of migration, retraining, and operational risk. Logo retention is mid-to-high 90s.</p>
+</li>
+<li>
+<p><strong>Niche dominance:</strong> Roper targets markets that are large enough to be profitable but too small to attract big horizontal software vendors (Microsoft, Salesforce). A school district's HR system or a government contractor's timesheet software are not markets that attract venture capital.</p>
+</li>
+<li>
+<p><strong>Capital allocation as moat:</strong> Roper has $6B+ in deployment capacity and a reputation as a "home of choice" for founders looking to sell their businesses. This gives Roper access to deals that competitors may not see. The decentralized model (let acquired businesses run independently) is attractive to sellers who don't want their company absorbed into a corporate bureaucracy. Source: <a href="https://www.theglobeandmail.com/investing/markets/stocks/ROP/pressreleases/37251517/roper-rop-q4-2025-earnings-call-transcript/">Roper Q4 2025 earnings call</a></p>
+</li>
+</ol>
+<p><strong>Is the moat WIDER, SAME, or NARROWER than 2 years ago?</strong></p>
+<p><strong>SAME — but under scrutiny.</strong> The aggregate switching costs across the portfolio are unchanged. However, two dynamics bear monitoring:</p>
+<ul>
+<li><em>Positive:</em> Portfolio quality improved — Roper divested its industrial businesses (sold to CD&amp;R in 2022) and redeployed into higher-quality software (CentralReach, Subsplash, ProCare, Transact). The revenue mix is now ~75% software, up from ~65% pre-divestiture.</li>
+<li><em>Negative:</em> Organic growth decelerated from 6% to 4% in Q4. If the organic engine weakens, Roper becomes more dependent on acquisitions — which means more leverage and higher execution risk.</li>
+</ul>
+<p><strong>Closest competitor:</strong> Constellation Software (CSU.TO) is the closest business model peer. CSU is NOT gaining ground in Roper's specific verticals — they operate in different niches. The competitive risk for Roper is less about a single competitor and more about each subsidiary facing its own niche-specific rivals.</p>
+<p><strong>AI disruption test:</strong></p>
+<p>This is the critical question for Roper, and the selloff is consistent with broader software multiple compression and AI-related uncertainty narratives affecting the entire sector.</p>
+<ul>
+<li><em>Deltek (GovCon project management):</em> AI could automate timesheet entry, project cost estimation, and compliance reporting. However, the regulatory complexity of government contracting (FAR/DFAR compliance, DCAA audit requirements) creates barriers that generic AI tools can't easily navigate. Risk: <strong>MODERATE</strong> — could erode some manual workflows but regulatory stickiness protects the core.</li>
+<li><em>Vertafore (insurance agency management):</em> AI could automate policy quoting and carrier submissions. Vertafore is actively building AI features into its platform. Risk: <strong>LOW-TO-MODERATE</strong> — Vertafore likely benefits from AI as a feature rather than being disrupted by it.</li>
+<li><em>Frontline (K-12 HR):</em> AI could streamline teacher hiring workflows. But school districts are slow technology adopters with long procurement cycles. Risk: <strong>LOW.</strong></li>
+<li><em>DAT (freight matching):</em> Already a data/marketplace business that could leverage AI for pricing and load matching. Risk: <strong>LOW</strong> — DAT is more likely an AI beneficiary.</li>
+<li><em>Aderant (legal practice management):</em> Legal AI is advancing rapidly (Harvey, CoCounsel). However, Aderant handles billing, timekeeping, and practice management — the back-office plumbing, not the legal reasoning. Risk: <strong>LOW-TO-MODERATE.</strong></li>
+</ul>
+<p>CEO Hunn addressed AI directly on the Q4 call: "We're not going to AI wash our revenue stream" — a measured approach. Roper hired a dedicated AI accelerator team (Shane Luke and Eddie Raphael) to embed AI capabilities into each business. The decentralized model means each business deploys AI with domain specificity rather than a one-size-fits-all approach. Source: <a href="https://www.theglobeandmail.com/investing/markets/stocks/ROP/pressreleases/37251517/roper-rop-q4-2025-earnings-call-transcript/">Roper Q4 2025 earnings call</a>, <a href="https://www.investing.com/news/insider-trading-news/hunn-roper-technologies-ceo-buys-45m-in-rop-stock-93CH-4352557">Investing.com</a></p>
+<p><em>Overall AI risk: MODERATE.</em> Roper is not immune, but the diversification across 20+ businesses means no single AI disruption vector can impair more than a fraction of revenue. The bigger risk is that AI-driven market anxiety compresses the multiple — which is already happening — rather than AI actually eroding Roper's businesses.</p>
+<hr />
+<h2>SECTION 5: RISKS &amp; THREATS</h2>
+<p><strong>Regulatory/legal risks: LOW.</strong>
+Roper faces standard software regulatory requirements (data privacy — GDPR, CCPA) across its portfolio. Deltek has exposure to U.S. government budget uncertainty and potential sequestration. No specific lawsuits or regulatory actions noted in recent filings. Source: <a href="https://www.stocktitan.net/sec-filings/ROP/10-k-roper-technologies-inc-files-annual-report-ea07188a13c1.html">Roper FY2025 10-K</a></p>
+<p><strong>Competitive threats (specific, named):</strong>
+- <em>Constellation Software (CSU.TO):</em> Competes for acquisition targets in vertical software. CSU's smaller deal sizes and longer track record may give it an edge in certain situations. However, CSU and Roper largely operate in different verticals and rarely compete head-to-head for the same acquisition.
+- <em>Private equity:</em> As PE firms face increasing pressure to generate LP liquidity, they may sell assets at more favorable prices to strategic buyers like Roper. This is a potential tailwind, not a threat. However, PE firms are also buyers of vertical software businesses, creating competition at the acquisition stage. Source: <a href="https://www.theglobeandmail.com/investing/markets/stocks/ROP/pressreleases/37251517/roper-rop-q4-2025-earnings-call-transcript/">Roper Q4 2025 earnings call</a></p>
+<p><strong>Macro/cyclical sensitivity: MODERATE.</strong>
+- <em>Freight cycle (DAT):</em> The freight market has been depressed for 2+ years, weighing on DAT's growth. Management expects the freight market to remain "stable but muted" and is not assuming recovery in 2026 guidance. Source: <a href="https://www.datainsightsmarket.com/companies/ROP">DataInsightsMarket</a>
+- <em>Government spending (Deltek):</em> DoD budget uncertainty and potential government shutdowns create sales cycle headwinds for Deltek. Management flagged a 1–2 percentage point reduction in Deltek's organic growth due to budget uncertainty. Source: <a href="https://www.datainsightsmarket.com/companies/ROP">DataInsightsMarket</a>
+- <em>Higher interest rates:</em> Roper's leveraged model means higher rates increase borrowing costs. The $2B bond issuance at 4.8% blended rate is manageable but higher than pre-2022 levels.
+- <em>Tariffs:</em> Most Technology Enabled Products are USMCA compliant, limiting tariff exposure to an estimated $10–15M. Source: <a href="https://www.datainsightsmarket.com/companies/ROP">DataInsightsMarket</a></p>
+<p><strong>Management/insider activity: MIXED — net seller, but with significant open-market buy.</strong>
+- <em>Fact:</em> CEO Neil Hunn exercised options and sold 30,000 shares on Nov 11, 2025 at ~$444 ($13.3M). The next day, Nov 12, he purchased 10,000 shares in the open market at ~$452 ($4.5M). Net: sold 20,000 shares. Source: <a href="https://www.investing.com/news/insider-trading-news/hunn-roper-technologies-ceo-buys-45m-in-rop-stock-93CH-4352557">Investing.com insider report</a>, <a href="https://in.investing.com/news/insider-trading-news/roper-technologies-ceo-hunn-sells-133-million-in-stock-93CH-5102660">SEC Form 4</a>
+- <em>Fact:</em> Director Amy Woods Brinkley purchased 1,200 shares at ~$451 ($541K) on Nov 12, 2025. Source: <a href="https://www.tickerreport.com/banking-finance/13330587/roper-technologies-inc-rop-stock-position-lifted-by-tandem-investment-advisors-inc.html">SEC Form 4 via Ticker Report</a>
+- <em>Interpretation:</em> The CEO selling is routine (option exercises, vesting events). The $4.5M open-market buy the very next day is a strong signal — CEOs don't write personal checks for $4.5M unless they believe the stock is undervalued. The Board Chair also bought. Both bought at ~$450, which is 42% above the current price of $317. The company itself bought back $500M of stock at ~$446 average. Management conviction at prices far above current levels is a meaningful positive data point.</p>
+<p><strong>Customer concentration risk: LOW.</strong>
+No single customer &gt;10%. Revenue is diversified across 20+ businesses serving different end markets.</p>
+<p><strong>Analyst sentiment: DETERIORATING.</strong>
+Multiple downgrades and price target cuts after Q4 results: Stifel and Mizuho downgraded (Mizuho to Strong Sell). JPMorgan, RBC, and Melius cut price targets. However, consensus still shows a Buy rating from 14 analysts with a $495 average target — which is 56% above the current price. Source: <a href="https://public.com/stocks/rop/forecast-price-target">Public.com analyst ratings</a>, <a href="https://www.tickerreport.com/banking-finance/13330587/roper-technologies-inc-rop-stock-position-lifted-by-tandem-investment-advisors-inc.html">Ticker Report</a></p>
+<hr />
+<h2>SECTION 6: THESIS &amp; EXIT CRITERIA</h2>
+<p><strong>Original thesis:</strong> Roper is a disciplined acquirer and operator of niche-dominant vertical software businesses, protected by high switching costs and mission-critical status, compounding free cash flow at 15%+ CAGR through organic growth and accretive acquisitions. The decentralized model preserves entrepreneurial energy within acquired businesses while centralizing capital allocation at the parent level.</p>
+<p><strong>Nature of risk: CYCLICAL + EXECUTION.</strong>
+The current weakness is driven by three cyclical headwinds (freight depression → DAT, government budget uncertainty → Deltek, media/entertainment strikes → Foundry) and the market's broader re-rating of software multiples amid AI disruption fears. These are not structural impairments to the business model.</p>
+<p>The execution risk is real but different: Roper deployed $3.3B in acquisitions in 2025 and $3.6B in 2024. Integration of ProCare "initially underdelivered on growth expectations due to operational challenges." Source: <a href="https://www.datainsightsmarket.com/companies/ROP">DataInsightsMarket</a>. If multiple acquisitions underdeliver simultaneously, the leveraged model compounds the pain.</p>
+<p><strong>Exit criteria (from our system):</strong> "Organic growth &lt;4% for 2+ years; acquisition integration failures."</p>
+<p><strong>Has exit criteria been triggered or approached?</strong>
+- <em>Fact:</em> Q4 2025 organic growth was 4%. Full-year 2025 organic growth was 5%. FY2026 guidance is 5–6% organic.
+- <em>Interpretation:</em> We are at the <strong>warning boundary</strong> (4%), not below the trigger (&lt;4%). The exit criteria requires &lt;4% "for 2+ years" — we have one quarter at the boundary, not a sustained breach. But the trend (6% → 6% → 5% → 4%) demands close monitoring. One more quarter at or below 4% and we escalate to KEEP (WATCH) with active exit evaluation.</p>
+<p><strong>Thesis status: INTACT — but under elevated scrutiny.</strong></p>
+<p>The distinction from a truly broken thesis (like NVO's competitive loss or FICO's regulatory attack) is important: Roper's individual businesses still hold their market positions. DAT is still the dominant freight matching platform — the freight market is just depressed. Deltek is still the dominant GovCon software — the government budget is just uncertain. These are cyclical headwinds, not competitive losses.</p>
+<hr />
+<h2>SECTION 7: VERDICT</h2>
+<p><strong>Best-of-breed test: MAYBE.</strong></p>
+<p>This is the honest answer. Roper was a clear YES when it was growing organically at 6%+ and deploying capital into accretive deals at a 30x+ P/E. At 4% organic growth, with management explicitly not projecting an inflection, and with the market down 44% from highs, the "best-of-breed" designation requires re-earning. The FCF engine is still elite (31% margins, $2.47B, 18% CAGR). The portfolio quality improved post-divestiture. But the compounder premium requires consistent organic growth proof, and that proof is currently weakening.</p>
+<p><strong>Watchlist decision: KEEP (WATCH).</strong></p>
+<p>Not DEMOTE — because the FCF engine, balance sheet capacity, management capital allocation track record, and insider buying all support continued ownership. But the (WATCH) designation means we require organic growth re-acceleration above 5% before any capital deployment.</p>
+<p><strong>Position decision: HOLD 12 shares @ ~$393.88. Do NOT add.</strong></p>
+<table>
+<thead>
+<tr>
+<th>Account</th>
+<th>Shares</th>
+<th>Avg Cost</th>
+<th>Current Value</th>
+<th>P&amp;L</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Account 1</td>
+<td>10</td>
+<td>$400.00</td>
+<td>$3,170</td>
+<td>-$830 (-20.8%)</td>
+</tr>
+<tr>
+<td>Account 2</td>
+<td>2</td>
+<td>$363.29</td>
+<td>$634</td>
+<td>-$93 (-12.8%)</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>12</strong></td>
+<td><strong>~$393.88</strong></td>
+<td><strong>$3,804</strong></td>
+<td><strong>-$923 (-19.5%)</strong></td>
+</tr>
+</tbody>
+</table>
+<p><em>Why hold?</em>
+- At $317 and ~14.8x forward P/E, significant downside from here requires a genuine thesis break — not just slow growth. The FCF yield at current price is ~7.1% ($2.47B FCF / ~$34.6B market cap). Market cap source: <a href="https://www.tradingview.com/symbols/NASDAQ-ROP/">TradingView</a> (Feb 25, 2026). You're being paid handsomely to wait.
+- CEO bought $4.5M of stock at $452 and the company bought back $500M at $446. Insiders and the company believe this is substantially undervalued.
+- The 3-year FCF CAGR of 18% hasn't broken. Revenue grew 12% in FY2025. The deceleration is in organic growth specifically — total growth including acquisitions remains healthy.
+- The portfolio is higher quality than 3 years ago (post-industrial divestiture). Application Software now dominates.</p>
+<p><em>Why not add?</em>
+- Organic growth at 4% is at our exit threshold. Adding into a decelerating growth story while already down 20% is the kind of averaging-down discipline we built the system to prevent.
+- The GTC at $380 that was placed in Feb was never hit (the stock gapped below it during the selloff). Current price of $317 is far below both our $400 START and $380 ADD targets. The targets themselves may need recalibration — $380 was based on a 30x P/E environment that no longer exists.
+- Multiple analyst downgrades suggest sentiment has not stabilized. Catching a falling knife on a stock down 44% during a regime selloff violates our Track 2 principles.
+- The Q1 2026 print (expected late April 2026) will be the critical data point. If organic growth re-accelerates to 5%+, the thesis strengthens and we can recalibrate ADD targets. If it stays at 4% or below, we reassess the watchlist position.</p>
+<p><strong>Targets: UNDER REVIEW.</strong></p>
+<p>The existing targets ($400 START, $380 ADD) were set in a different valuation regime. At current prices:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Old Target</th>
+<th>Current Price</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>START</td>
+<td>$400</td>
+<td>$317</td>
+<td>-20.8% below target — already filled well below</td>
+</tr>
+<tr>
+<td>ADD</td>
+<td>$380</td>
+<td>$317</td>
+<td>-16.6% below target — do NOT add, see above</td>
+</tr>
+</tbody>
+</table>
+<p>New target recommendation: <strong>SUSPEND ADD target</strong> until Q1 2026 earnings confirm organic growth ≥5%. If confirmed, re-establish ADD at a price that represents ~16x FY2026 forward P/E — approximately $340–$345. If organic growth stays ≤4%, maintain HOLD with no ADD.</p>
+<p><strong>Exit trigger (expanded from system default):</strong>
+1. Organic growth &lt;4% for 2 consecutive full fiscal years (not yet triggered — we have one quarter at 4%)
+2. Acquisition integration failure that impairs consolidated FCF growth for 2+ quarters
+3. FCF margin compression below 27% (from current 31%)
+4. Net debt / EBITDA exceeds 4.0x (from current 2.9x)
+5. CEO or CFO departures without clear succession</p>
+<p><strong>Confidence level: 72%</strong></p>
+<p>Lower than CPRT's 88% because: (a) organic growth is at the exit threshold, (b) the stock is in the middle of a steep de-rating with no stabilization signal yet, (c) the leveraged balance sheet adds downside risk that CPRT's zero-debt fortress doesn't have, and (d) the AI disruption narrative, while likely overblown, is compressing the multiple in ways that may persist.</p>
+<hr />
+<h2>APPENDIX: POSITION HISTORY</h2>
+<ul>
+<li><strong>Jan 30, 2026:</strong> Bought ROP — $726.58 (2 shares @ ~$363.29, Account 2)</li>
+<li><strong>Prior purchases:</strong> 10 shares @ $400.00 (Account 1, multiple fills over Jan 2026)</li>
+<li><strong>GTC at $380 (5 shares):</strong> Placed Feb 6, 2026 via roundtable. Price gapped below $380 during the Feb 12 selloff without filling (likely due to gap-through mechanics). GTC expired or was not executed. Position remains 12 shares total.</li>
+</ul>
+<hr />
+<h2>SELF-ASSESSMENT: LESSONS FOR THE SYSTEM</h2>
+<p><strong>1. Roper tests the boundary between "tantrum" and "repricing."</strong> Unlike CPRT (clear cyclical dip on an intact physical moat) or FICO (clear regulatory attack on a weakening moat), Roper sits in the uncomfortable middle. Organic growth is decelerating but not collapsing. The FCF engine is intact but the multiple is collapsing. The system needs to be honest when the answer is "I don't know yet" rather than forcing a binary call. The KEEP (WATCH) designation exists precisely for this situation. Note the distinction: WM-like risk means a great business with limited reinvestment runway that returns cash (not bad, just not a compounder). ROP-specific risk is that it could become WM-like <em>unless acquisitions remain reliably accretive at scale</em> — and that's a harder bet to make.</p>
+<p><strong>2. The "compounder vs. dividend aristocrat in disguise" test — with classification system.</strong> A true compounder can crush the S&amp;P because every dollar of FCF gets reinvested at high returns — Berkshire Hathaway is the archetype. A dividend aristocrat in disguise has exhausted its reinvestment runway — it returns cash because there's nowhere productive to put it. The question isn't "is this a great company?" but "does this great company have a long reinvestment runway that doesn't depend on finding the next big deal?"</p>
+<p><strong>System classification (permanent, applies to all watchlist holdings):</strong></p>
+<ul>
+<li><strong>SELF-SUSTAINING COMPOUNDER:</strong> Organic growth &gt;6% with strong retention and pricing power, independent of M&amp;A. The reinvestment runway is built into the existing business. Examples: a dominant platform with expanding TAM, pricing power, and network effects. These are the holdings that can crush the S&amp;P.</li>
+<li><strong>ACQUISITION COMPOUNDER:</strong> Relies on deal pipeline to stay above ~6% total growth. Organic growth alone is 3–5%. The reinvestment runway is "find the next good deal." These can be excellent businesses, but the runway gets harder as you get bigger and deals get more expensive. <em>If growth depends on M&amp;A, watchlist status must be capped at KEEP (WATCH) until we see repeatable evidence of disciplined deal economics at current scale.</em></li>
+<li><strong>MATURE MOAT / CASH RETURNER:</strong> Growth is modest (2–4%), returns cash via dividends and buybacks. Still can be a good hold — WM is the archetype — but not a "best-of-best compounder" that will crush the S&amp;P. These have reached "maximum density." They will grow a little, pay a steady dividend, and that's that.</li>
+</ul>
+<p><strong>Roper's current classification: ACQUISITION COMPOUNDER.</strong> Without M&amp;A, the existing portfolio is a 4–5% organic grower with elite margins. That's a fine business, but it's not crushing the S&amp;P on its own. The $6B+ M&amp;A capacity IS the reinvestment runway — but that runway depends on <em>finding good things to buy at disciplined prices</em>, which gets harder at scale. Constellation Software solved this with hundreds of tiny deals. Berkshire solved it by being Warren Buffett. Roper is trying to solve it with billion-dollar deals that carry real integration risk.</p>
+<p><strong>Pre-committed Q1 2026 decision tree (next earnings ~April 28, 2026):</strong></p>
+<ul>
+<li><strong>Organic growth &gt;=5% AND management commentary not cautious</strong> -&gt; KEEP (WATCH) stays; may re-open ADD target framework at ~$340-345 (~16x forward P/E).</li>
+<li><strong>Organic growth ~4% again</strong> -&gt; Escalate to active exit evaluation. Not necessarily sell, but ROP becomes a "prove-it" holding with no capital deployment.</li>
+<li><strong>Organic growth &lt;4%</strong> -&gt; Thesis impairment warning. No adds. Begin measuring acquisition dependency risk: are deals getting larger, more expensive, or less accretive?</li>
+</ul>
+<p><strong>3. Leveraged compounders require different guardrails than fortress balance sheets.</strong> CPRT has zero debt and $5.1B in cash — a 44% stock price decline doesn't change the risk profile at all. Roper has $9B in net debt — a sustained de-rating raises refinancing risk, constrains M&amp;A capacity, and could force defensive capital allocation (paying down debt instead of deploying into accretive acquisitions). The system should weight balance sheet strength more heavily in valuation confidence scores.</p>
+<p><strong>3. CEO open-market purchases at 42% above current price deserve weight.</strong> Neil Hunn wrote a $4.5M personal check to buy ROP at $452 in November. Board Chair Amy Brinkley bought at $451. The company itself bought back $500M at $446. These are not option exercises or tax-planning transactions — they are conviction bets. When the people who know the business best are buying at 42% premiums to today's price, the market's panic pricing should be scrutinized.</p>
+<hr />
+<p><em>Next earnings: Q1 2026, expected ~April 28, 2026.</em></p>
+<p><em>Key monitoring KPIs:</em>
+- <strong>Organic growth rate</strong> — Q4 was 4%. Must re-accelerate to 5%+ in Q1 2026, or the exit threshold conversation intensifies.
+- <strong>DAT freight volumes</strong> — any recovery signal in spot rates or broker participation is a leading indicator for Network Software growth.
+- <strong>Deltek bookings</strong> — government contractor confidence tied to budget clarity. Watch for post-CR budget resolution.
+- <strong>FCF margin</strong> — must hold ≥30%. Any dip below 27% is an exit escalation.
+- <strong>Net debt / EBITDA</strong> — must stay below 3.5x. Rising toward 4.0x is a warning.
+- <strong>Integration updates</strong> — CentralReach and ProCare execution. Management said ProCare had "operational challenges" — watch for improvement signals.
+- <strong>Share repurchase activity</strong> — if management is buying aggressively at $317 (they bought at $446), that's maximum conviction. If they pause buybacks, that's a warning.</p>
+
+    </main>
+
+    <footer>
+        <div class="disclaimer">
+            <strong>Disclaimer:</strong> This is not investment advice. We are not licensed financial advisors.
+            Past performance does not guarantee future results. We may hold positions in the stocks discussed.
+            You are responsible for your own decisions.
+        </div>
+        <p>&copy; 2026 Tantrums &amp; Targets</p>
+    </footer>
+</body>
+</html>
